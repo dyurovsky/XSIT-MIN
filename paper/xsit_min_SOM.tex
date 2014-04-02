@@ -1,0 +1,56 @@
+\clearpage
+\section{Appendix}
+\begin{table}
+\begin{center}
+\begin{tabular}{lrrrrl}
+\hline
+Predictor & Estimate & Std. Error & $z$ value & $p$ value & \\
+\hline
+Intercept & 4.69 & 0.43  & 10.98 &  <0.0001 & ***  \\
+Log(Referents)  & -.55 & .20  & -2.80 &  <0.01 & **   \\
+Log(Interval)  & -.42 & .20  & -2.08 &  <0.05 & *  \\
+Switch Trial  & -1.46 & .44  & -3.30 &  <0.0001 & ***   \\
+Log(Referents)*Log(Interval)  & -.13 & .09 & -1.38 &  .17 &  \\
+Log(Referents)*Switch  & -1.03 & .21 & -5.00 &  <0.0001 & ***   \\
+Log(Interval)*Switch  & .14 & .21  & .67 &  .50 &  \\
+Log(Refs) * Log(Int)*Switch  & .20 & .10  & 2.02 &  <0.05 & *  \\
+\hline
+\end{tabular}
+\end{center}
+\caption{\label{tab:exp1_reg}Predictor estimates with standard errors and significance information for a logistic mixed-effects model predicting word learning in Experiment 1. The model was specified as \small{\tt{Correct \textasciitilde \hspace{1pt} Log(Referents) * Log(Interval) * TrialType + (TrialType | subject)}}.}
+\end{table}
+
+
+\begin{table}
+\begin{center}
+\begin{tabular}{lrrrrl}
+\hline
+Predictor & Estimate & Std. Error & $z$ value & $p$ value & \\
+\hline
+Intercept & 3.97 & 0.25  & 16.01 &  <0.0001 & ***  \\
+Log(Referents)  & -.48 & .09  & -4.85 &  <0.001 & ***   \\
+Log(Interval)  & -.60 & .07  & -8.57 &  <0.001 & ***  \\
+New Label Trial  & -4.03 & .28  & -14.09 &  <0.0001 & ***   \\
+Log(Referents)*Switch  & -.24 & .12  & -1.98 &  <.05 & * \\
+Log(Interval)*New Label  & .58 & .08 & 7.13 &  <0.0001 & ***   \\
+\hline
+\end{tabular}
+\end{center}
+\caption{\label{tab:exp2_reg}Predictor estimates with standard errors and significance information for a logistic mixed-effects model predicting word learning in Experiment 2. The model was specified as \small{\tt{Correct \textasciitilde \hspace{1pt} Log(Referents) * TrialType + Log(Interval) * TrialType + (TrialType | subject)} }}
+\end{table}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{lrrrrl}
+\hline
+Predictor & Estimate & Std. Error & $z$ value & $p$ value & \\
+\hline
+Intercept & 2.58 & 1.04  & 2.48 &  <0.05 & *  \\
+Switch Trial  & -4.39 & 1.24  & -3.55 &  <0.001 & ***   \\
+Age Group  & -.10 & .24  & -.43 &  .67 &  \\
+Switch Trial*Age Group  & .62 & .29 & 2.17 &  <0.05 & *   \\
+\hline
+\end{tabular}
+\end{center}
+\caption{\label{tab:exp2_reg}Predictor estimates with standard errors and significance information for a logistic mixed-effects model predicting word learning in Experiment 3. The model was specified as \small{\tt{Correct \textasciitilde \hspace{1pt} Age Group * TrialType + (1|subject) + (1|Setting)} }}
+\end{table}
