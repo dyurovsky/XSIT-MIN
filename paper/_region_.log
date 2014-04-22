@@ -1,0 +1,1681 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  16 APR 2014 21:57
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**\nonstopmode\nofiles\PassOptionsToPackage{active,tightpage,auctex}{preview}\A
+tBeginDocument{\ifx\ifPreview\undefined\RequirePackage[displaymath,floats,graph
+ics,textmath,sections,footnotes]{preview}[2004/11/05]\fi} \input _region_.tex
+(./_region_.tex  !name(xsit_min_pnas.tex) (./pnastwo.cls
+
+
+ Two Column Journal Style for the
+ Proceedings of the National Academy of Science 
+ Written by Amy Hendrickson, TeXnology, Inc., 9/04
+ 
+ This version is dated April 15, 2008
+
+
+Document Class: pnastwo 
+\affilcount=\count79
+\saveaffilcount=\count80
+\c@fnaffilcount=\count81
+\c@part=\count82
+\c@section=\count83
+\c@subsection=\count84
+\c@subsubsection=\count85
+\c@paragraph=\count86
+\c@subparagraph=\count87
+\c@figure=\count88
+\c@table=\count89
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+\bibskip=\skip43
+\footnum=\count90
+\savefootnum=\count91
+\abovefigcaptionskip=\skip44
+\abovetabcaptionskip=\skip45
+\abovetableskip=\skip46
+\belowtabcaptionskip=\dimen103
+\saveparskip=\dimen104
+\captionskip=\dimen105
+\PushOneColTopFig=\dimen106
+\PushOneColBotFig=\dimen107
+\PushOneColTopTab=\dimen108
+\PushOneColBotTab=\dimen109
+\PushTwoColTopFig=\dimen110
+\PushTwoColBotFig=\dimen111
+\PushTwoColTopTab=\dimen112
+\PushTwoColBotTab=\dimen113
+\intextfloatskip=\skip47
+\c@appfigure=\count92
+\c@apptable=\count93
+\c@appplate=\count94
+\checkforspace=\dimen114
+\savetopinsert=\box26
+\savebotinsert=\box27
+\secondsavetopinsert=\box28
+\secondsavebotinsert=\box29
+\firstcolbox=\box30
+\secondcolbox=\box31
+\thefirstbox=\box32
+\thesecondbox=\box33
+\firstcol=\dimen115
+\secondcol=\dimen116
+\checkheight=\dimen117
+\loopnum=\count95
+\firstcolsavefignum=\count96
+\footnotebox=\box34
+\ColUsed=\dimen118
+\FigSpace=\dimen119
+\testdblbotins=\box35
+\pageloopnum=\count97
+\endcolsavetopinsert=\box36
+\endcolsavebotinsert=\box37
+\testpagesize=\box38
+\savelastskip=\dimen120
+\partialpage=\box39
+\figandtabnumber=\count98
+\figandtabbox=\box40
+\pagefloatnumber=\count99
+\sizeoffloat=\box41
+\bogus=\count100
+\figinsert=\insert233
+\herebox=\box42
+\endfigbox=\box43
+\spanbox=\box44
+\dbltopins=\box45
+\dblbotins=\box46
+\dblbotskip=\skip48
+\dblfigandtabnumber=\count101
+\dblfigandtabbox=\box47
+\dblloopnum=\count102
+\savedblfigandtabnumber=\count103
+\dblspanherebox=\box48
+\captionwidth=\dimen121
+\widecaptionwidth=\dimen122
+\tablenoteloopnum=\count104
+\tablenotenum=\count105
+\c@theorem=\count106
+\c@lemma=\count107
+\c@definition=\count108
+\c@claim=\count109
+\c@alemma=\count110
+\c@remark=\count111
+\tablewide=\box49
+) (./pnastwoF.sty
+
+
+ -------------------------------------------
+ PostScript Fonts for PNAS One Column Journal Style
+ April 8b, 2008
+
+ IMPORTANT: If you use font encoding, as in \usepackage{T1enc},
+ please use it BEFORE \usepackage{pnasfont}, ie:
+ \documentclass{pnasone}
+ \usepackage{T1enc}
+ \usepackage[driver name]{color}
+
+ \usepackage{pnas}
+ -------------------------------------------
+ 
+ 
+) (/usr/local/texlive/2012/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip49
+\bibsep=\skip50
+LaTeX Info: Redefining \cite on input line 694.
+
+
+! LaTeX Error: \makeindex undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.795 \renewcommand\makeindex
+                             {\NAT@makeindex
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+\c@NAT@ctr=\count112
+) (/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count113
+))
+\Gin@req@height=\dimen123
+\Gin@req@width=\dimen124
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2009/06/22 v3.00
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+\@emptytoks=\toks15
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip51
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks16
+\ex@=\dimen125
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen126
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count114
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count115
+\leftroot@=\count116
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count117
+\DOTSCASE@=\count118
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box50
+\strutbox@=\box51
+\big@size=\dimen127
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count119
+\c@MaxMatrixCols=\count120
+\dotsspace@=\muskip10
+\c@parentequation=\count121
+\dspbrk@lvl=\count122
+\tag@help=\toks17
+\row@=\count123
+\column@=\count124
+\maxfields@=\count125
+\andhelp@=\toks18
+\eqnshift@=\dimen128
+\alignsep@=\dimen129
+\tagshift@=\dimen130
+\tagwidth@=\dimen131
+\totwidth@=\dimen132
+\lineht@=\dimen133
+\@envbody=\toks19
+\multlinegap=\skip52
+\multlinetaggap=\skip53
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+(/usr/local/texlive/2012/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2008/07/08 v3.8m The Babel package
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/babel/english.ldf
+Language: english 2005/03/30 v3.3o English support from the babel system
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2008/07/08 v3.8m Babel common definitions
+\babel@savecnt=\count126
+\U@D=\dimen134
+)
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/placeins/placeins.sty
+Package: placeins 2005/04/18  v 2.2
+)
+No file _region_.aux.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+
+(/Applications/Aquamacs.app/Contents/Resources/lisp/aquamacs/edit-modes/auctex/
+latex/preview.sty
+Package: preview 2010/02/14 11.87 (AUCTeX/preview-latex)
+
+(/Applications/Aquamacs.app/Contents/Resources/lisp/aquamacs/edit-modes/auctex/
+latex/prtightpage.def
+\PreviewBorder=\dimen135
+)
+(/Applications/Aquamacs.app/Contents/Resources/lisp/aquamacs/edit-modes/auctex/
+latex/prauctex.def
+No auxiliary output files.
+
+
+\hbadness=\count127
+\hfuzz=\dimen136
+
+(/Applications/Aquamacs.app/Contents/Resources/lisp/aquamacs/edit-modes/auctex/
+latex/prauctex.cfg))
+(/Applications/Aquamacs.app/Contents/Resources/lisp/aquamacs/edit-modes/auctex/
+latex/prfootnotes.def)
+\pr@snippet=\count128
+\pr@box=\box52
+\pr@output=\toks21
+
+Preview: Fontsize 9pt
+Preview: PDFoutput 1
+) (/usr/local/texlive/2012/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count129
+\scratchdimen=\dimen137
+\scratchbox=\box53
+\nofMPsegments=\count130
+\nofMParguments=\count131
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count132
+\MPscratchDim=\dimen138
+\MPnumerator=\count133
+\makeMPintoPDFobject=\count134
+\everyMPtoPDFconversion=\toks23
+) (/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+ !name(xsit_min_pnas.tex) !offset(-3) 
+LaTeX Font Info:    Try loading font information for U+msa on input line 53.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 53.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for OT1+phvr on input line 66.
+
+LaTeX Font Info:    No file OT1phvr.fd. on input line 66.
+
+
+LaTeX Font Warning: Font shape `OT1/phvr/m/n' undefined
+(Font)              using `OT1/cmr/m/n' instead on input line 66.
+
+LaTeX Font Info:    Font shape `OT1/ptmr8t/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptmr8t/b/n' tried instead on input line 72.
+
+
+Package natbib Warning: Citation `Saffran1996a' on page 2 undefined on input li
+ne 72.
+
+
+Package natbib Warning: Citation `Gomez2000' on page 2 undefined on input line 
+72.
+
+
+Package natbib Warning: Citation `Johnson2010c' on page 2 undefined on input li
+ne 72.
+
+
+Package natbib Warning: Citation `Yurovsky2012c' on page 2 undefined on input l
+ine 72.
+
+
+Package natbib Warning: Citation `Trueswell2013' on page 2 undefined on input l
+ine 72.
+
+
+Package natbib Warning: Citation `Pinker1989' on page 2 undefined on input line
+ 74.
+
+
+Package natbib Warning: Citation `Siskind1996' on page 2 undefined on input lin
+e 74.
+
+
+Package natbib Warning: Citation `Yu2007' on page 2 undefined on input line 74.
+
+
+
+Package natbib Warning: Citation `Yu2007' on page 2 undefined on input line 74.
+
+
+
+Package natbib Warning: Citation `Smith2008' on page 2 undefined on input line 
+74.
+
+
+Package natbib Warning: Citation `Scott2012' on page 2 undefined on input line 
+74.
+
+
+Package natbib Warning: Citation `Vlach2013' on page 2 undefined on input line 
+74.
+
+
+Package natbib Warning: Citation `Marr1982' on page 2 undefined on input line 7
+6.
+
+
+Package natbib Warning: Citation `Marr1982' on page 2 undefined on input line 7
+6.
+
+
+Package natbib Warning: Citation `Frank2009a' on page 2 undefined on input line
+ 76.
+
+
+Package natbib Warning: Citation `Vouloumanos2008' on page 2 undefined on input
+ line 76.
+
+
+Package natbib Warning: Citation `McMurray2012' on page 2 undefined on input li
+ne 76.
+
+
+Package natbib Warning: Citation `Yurovsky2014' on page 2 undefined on input li
+ne 76.
+
+
+Package natbib Warning: Citation `Medina2011' on page 2 undefined on input line
+ 76.
+
+
+Package natbib Warning: Citation `Trueswell2013' on page 2 undefined on input l
+ine 76.
+
+
+Package natbib Warning: Citation `Vogt2012' on page 2 undefined on input line 7
+6.
+
+
+Package natbib Warning: Citation `Reisenauer2013' on page 2 undefined on input 
+line 76.
+
+
+Package natbib Warning: Citation `Vouloumanos2008' on page 2 undefined on input
+ line 78.
+
+
+Package natbib Warning: Citation `Yurovsky2013' on page 2 undefined on input li
+ne 78.
+
+
+Package natbib Warning: Citation `Gallistel2004' on page 2 undefined on input l
+ine 78.
+
+
+Package natbib Warning: Citation `Medina2011' on page 2 undefined on input line
+ 78.
+
+
+Package natbib Warning: Citation `Smith2011a' on page 2 undefined on input line
+ 78.
+
+
+Package natbib Warning: Citation `Yurovsky2013a' on page 2 undefined on input l
+ine 78.
+
+
+Package natbib Warning: Citation `Dautriche2014' on page 2 undefined on input l
+ine 78.
+
+
+Package natbib Warning: Citation `Medina2011' on page 2 undefined on input line
+ 78.
+
+
+Package natbib Warning: Citation `Trueswell2013' on page 2 undefined on input l
+ine 78.
+
+\figandtabbox0=\box54
+! Preview: Snippet 1 started.
+<-><->
+      
+l.81 	\center{\includegraphics
+                              [width=.5\textwidth]{figures/multiple_refs}}
+Not a real error.
+
+<figures/multiple_refs.pdf, id=1, 433.62pt x 361.35pt>
+File: figures/multiple_refs.pdf Graphic file (type pdf)
+
+<use figures/multiple_refs.pdf>
+Package pdftex.def Info: figures/multiple_refs.pdf used on input line 81.
+(pdftex.def)             Requested size: 255.0pt x 212.49992pt.
+
+Preview: Tightpage -32891 -32891 32891 32891
+! Preview: Snippet 1 ended.(13926395+0x16711680).
+<-><->
+      
+l.81 ...width=.5\textwidth]{figures/multiple_refs}
+                                                  }
+Not a real error.
+
+[1 <./figures/multiple_refs.pdf>]
+
+Package natbib Warning: Citation `Yurovsky2014' on page 2 undefined on input li
+ne 85.
+
+
+LaTeX Warning: Reference `fig:mrefs' on page 2 undefined on input line 85.
+
+
+Package natbib Warning: Citation `Smith2011a' on page 2 undefined on input line
+ 85.
+
+
+Package natbib Warning: Citation `Trueswell2013' on page 2 undefined on input l
+ine 85.
+
+
+Package natbib Warning: Citation `Bower1963' on page 2 undefined on input line 
+85.
+
+
+LaTeX Warning: Reference `fig:models' on page 2 undefined on input line 87.
+
+\figandtabbox1=\box55
+! Preview: Snippet 2 started.
+<-><->
+      
+l.90 	\center{\includegraphics
+                              [width=.5\textwidth]{figures/model_fig}}
+Not a real error.
+
+<figures/model_fig.pdf, id=44, 1574.88374pt x 712.6625pt>
+File: figures/model_fig.pdf Graphic file (type pdf)
+
+<use figures/model_fig.pdf>
+Package pdftex.def Info: figures/model_fig.pdf used on input line 90.
+(pdftex.def)             Requested size: 255.0pt x 115.38762pt.
+
+! Preview: Snippet 2 ended.(7562043+0x16711680).
+<-><->
+      
+l.90 ...ics[width=.5\textwidth]{figures/model_fig}
+                                                  }
+Not a real error.
+
+[2 <./figures/model_fig.pdf{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/
+updmap/pdftex.map}>]
+! Preview: Snippet 3 started.
+<-><->
+      
+l.92 \end{figure}
+                 
+Not a real error.
+
+! Preview: Snippet 3 ended.(467751+303912x1915771).
+<-><->
+      
+l.92 \end{figure}
+                 
+Not a real error.
+
+[3]
+! Preview: Snippet 4 started.
+<-><->
+      
+l.92 \end{figure}
+                 
+Not a real error.
+
+! Preview: Snippet 4 ended.(337875+0x1358435).
+<-><->
+      
+l.92 \end{figure}
+                 
+Not a real error.
+
+[4]
+! Preview: Snippet 5 started.
+<-><->
+      
+l.92 \end{figure}
+                 
+Not a real error.
+
+! Preview: Snippet 5 ended.(467751+303912x1915771).
+<-><->
+      
+l.92 \end{figure}
+                 
+Not a real error.
+
+[5]
+! Preview: Snippet 6 started.
+<-><->
+      
+l.92 \end{figure}
+                 
+Not a real error.
+
+! Preview: Snippet 6 ended.(337875+0x1358435).
+<-><->
+      
+l.92 \end{figure}
+                 
+Not a real error.
+
+[6]
+! Preview: Snippet 7 started.
+<-><->
+      
+l.94 \section
+             {Experiment 1}
+Not a real error.
+
+LaTeX Font Info:    Font shape `OT1/ptmr8t/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptmr8t/b/n' tried instead on input line 94.
+
+! Preview: Snippet 7 ended.(417595+122978x16187392).
+<-><->
+      
+l.94 \section{Experiment 1}
+                           
+Not a real error.
+
+[7
+
+]
+\figandtabbox2=\box56
+
+! Preview: Snippet 8 started.
+<-><->
+      
+l.99 	\center{\includegraphics
+                              [width=.48\textwidth]{figures/design_fig}}
+Not a real error.
+
+<figures/design_fig.pdf, id=190, 1122.97545pt x 627.30055pt>
+File: figures/design_fig.pdf Graphic file (type pdf)
+
+<use figures/design_fig.pdf>
+Package pdftex.def Info: figures/design_fig.pdf used on input line 99.
+(pdftex.def)             Requested size: 244.79782pt x 136.74306pt.
+
+! Preview: Snippet 8 ended.(8961593+0x16043070).
+<-><->
+      
+l.99 ...s[width=.48\textwidth]{figures/design_fig}
+                                                  }
+Not a real error.
+
+[8 <./figures/design_fig.pdf>]
+
+LaTeX Warning: Reference `fig:design' on page 2 undefined on input line 103.
+
+! Preview: Snippet 9 started.
+<-><->
+      
+l.105 \subsection
+                 {Method}
+Not a real error.
+
+LaTeX Font Info:    Font shape `OT1/ptmr8t/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptmr8t/b/n' tried instead on input line 105
+.
+! Preview: Snippet 9 ended.(371196+7864x2009596).
+<-><->
+      
+l.105 \subsection{Method}
+                         
+Not a real error.
+
+[9
+
+]
+! Preview: Snippet 10 started.
+<-><->
+      
+l.107 \subsubsection
+                    {Participants}
+Not a real error.
+
+! Preview: Snippet 10 ended.(406386+119732x16187392).
+<-><->
+      
+l.107 \subsubsection{Participants}
+                                  
+Not a real error.
+
+[10
+
+]
+
+Package natbib Warning: Citation `Crump2013' on page 3 undefined on input line 
+109.
+
+! Preview: Snippet 11 started.
+<-><->
+      
+l.111 \subsubsection
+                    {Stimuli}
+Not a real error.
+
+! Preview: Snippet 11 ended.(406386+7074x16187392).
+<-><->
+      
+l.111 \subsubsection{Stimuli}
+                             
+Not a real error.
+
+[11
+
+]
+
+Package natbib Warning: Citation `Snodgrass1980' on page 3 undefined on input l
+ine 113.
+
+
+Package natbib Warning: Citation `Kanwisher1997' on page 3 undefined on input l
+ine 113.
+
+
+LaTeX Warning: Reference `fig:design' on page 3 undefined on input line 113.
+
+! Preview: Snippet 12 started.
+<-><->
+      
+l.113 ...ects as produced by AT\&T Natural Voices$
+                                                  \texttrademark$ (voice: Cr...
+
+Not a real error.
+
+
+LaTeX Warning: Command \texttrademark invalid in math mode on input line 113.
+
+! Preview: Snippet 12 ended.(506542+0x622587).
+<-><->
+      
+l.113 ...d by AT\&T Natural Voices$\texttrademark$
+                                                   (voice: Crystal). Novel w...
+
+Not a real error.
+
+[12]
+! Preview: Snippet 13 started.
+<-><->
+      
+l.114 \subsection
+                 {Design and Procedure}
+Not a real error.
+
+! Preview: Snippet 13 ended.(371196+112984x5710544).
+<-><->
+      
+l.114 \subsection{Design and Procedure}
+                                       
+Not a real error.
+
+[13
+
+]
+! Preview: Snippet 14 started.
+<-><->
+      
+l.120 ...it was the ``correct'' referent.\footnote
+                                                  {It is possible that forci...
+
+Not a real error.
+
+LaTeX Font Info:    Font shape `OT1/ptmr8t/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptmr8t/b/n' tried instead on input line 120
+.
+
+Package natbib Warning: Citation `Medina2011' on page 3 undefined on input line
+ 120.
+
+
+Package natbib Warning: Citation `Smith2011a' on page 3 undefined on input line
+ 120.
+
+
+Package natbib Warning: Citation `Trueswell2013' on page 3 undefined on input l
+ine 120.
+
+! Preview: Snippet 14 ended.(517159+0x229376).
+<-><->
+      
+l.120 ...{Medina2011, Smith2011a, Trueswell2013}.}
+                                                  
+Not a real error.
+
+[14]
+! Preview: Snippet 15 started.
+<-><->
+      
+l.122 \subsection
+                 {Results}
+Not a real error.
+
+! Preview: Snippet 15 ended.(371196+7864x2039480).
+<-><->
+      
+l.122 \subsection{Results}
+                          
+Not a real error.
+
+[15
+
+]
+! Preview: Snippet 16 started.
+<-><->
+      
+l.124 ...trials and a probability of success of  $
+                                                  \frac{1}{\#Referents}$). T...
+
+Not a real error.
+
+! Preview: Snippet 16 ended.(495057+276607x2851348).
+<-><->
+      
+l.124 ...ty of success of  $\frac{1}{\#Referents}$
+                                                  ). The top row of Figure~\...
+
+Not a real error.
+
+[16]
+
+LaTeX Warning: Reference `fig:exp1_2_data' on page 3 undefined on input line 12
+4.
+
+! Preview: Snippet 17 started.
+<-><->
+      
+l.124 ...from those expected by chance (smallest $
+                                                  \chi^{2}(4) = 15.07$, all ...
+
+Not a real error.
+
+! Preview: Snippet 17 ended.(503968+147456x3614694).
+<-><->
+      
+l.124 ...by chance (smallest $\chi^{2}(4) = 15.07$
+                                                  , all $p < .01$). Thus, le...
+
+Not a real error.
+
+[17]
+! Preview: Snippet 18 started.
+<-><->
+      
+l.124 ...ce (smallest $\chi^{2}(4) = 15.07$, all $
+                                                  p < .01$). Thus, learners ...
+
+Not a real error.
+
+! Preview: Snippet 18 ended.(380108+114688x1887175).
+<-><->
+      
+l.124 ...lest $\chi^{2}(4) = 15.07$, all $p < .01$
+                                                  ). Thus, learners encode m...
+
+Not a real error.
+
+[18]
+         
+Sorry! Your choices following \figure or \table 
+are only [h] for `here', [t] for `top', [b] for `bottom', or [p] for `page'.
+I have ignored the [!] and inserted the figure or table at this point
+on the page. See documentation if you need more help.
+         
+\dblfigandtabbox1=\box57
+! Preview: Snippet 19 started.
+<-><->
+      
+l.127 	\center{\includegraphics
+                               [width=\textwidth]{figures/exp1_2_data}}
+Not a real error.
+
+<figures/exp1_2_data.pdf, id=341, 722.7pt x 433.62pt>
+File: figures/exp1_2_data.pdf Graphic file (type pdf)
+
+<use figures/exp1_2_data.pdf>
+Package pdftex.def Info: figures/exp1_2_data.pdf used on input line 127.
+(pdftex.def)             Requested size: 510.0pt x 305.99988pt.
+
+! Preview: Snippet 19 ended.(20054008+0x33423360).
+<-><->
+      
+l.127 ...cs[width=\textwidth]{figures/exp1_2_data}
+                                                  }
+Not a real error.
+
+[19 <./figures/exp1_2_data.pdf>]
+
+Package natbib Warning: Citation `Baayen2008' on page 3 undefined on input line
+ 131.
+
+
+LaTeX Warning: Reference `tab:exp1_reg' on page 3 undefined on input line 131.
+
+! Preview: Snippet 20 started.
+<-><->
+      
+l.140 \section
+              {Experiment 2}
+Not a real error.
+
+! Preview: Snippet 20 ended.(417595+122978x16187392).
+<-><->
+      
+l.140 \section{Experiment 2}
+                            
+Not a real error.
+
+[20
+
+]
+! Preview: Snippet 21 started.
+<-><->
+      
+l.144 \subsection
+                 {Method}
+Not a real error.
+
+! Preview: Snippet 21 ended.(371196+7864x2009596).
+<-><->
+      
+l.144 \subsection{Method}
+                         
+Not a real error.
+
+[21
+
+]
+! Preview: Snippet 22 started.
+<-><->
+      
+l.146 \subsubsection
+                    {Participants}
+Not a real error.
+
+! Preview: Snippet 22 ended.(406386+119732x16187392).
+<-><->
+      
+l.146 \subsubsection{Participants}
+                                  
+Not a real error.
+
+[22
+
+]
+! Preview: Snippet 23 started.
+<-><->
+      
+l.150 \subsection
+                 {Stimuli, Design, and Procedure}
+Not a real error.
+
+! Preview: Snippet 23 ended.(371196+112984x7885290).
+<-><->
+      
+l.150 \subsection{Stimuli, Design, and Procedure}
+                                                 
+Not a real error.
+
+[23
+
+]
+
+LaTeX Warning: Reference `fig:design' on page 4 undefined on input line 152.
+
+! Preview: Snippet 24 started.
+<-><->
+      
+l.154 \subsection
+                 {Results}
+Not a real error.
+
+! Preview: Snippet 24 ended.(371196+7864x2039480).
+<-><->
+      
+l.154 \subsection{Results}
+                          
+Not a real error.
+
+[24
+
+]
+
+LaTeX Warning: Reference `fig:exp1_2_data' on page 4 undefined on input line 15
+6.
+
+! Preview: Snippet 25 started.
+<-><->
+      
+l.162 \section
+              {Model}
+Not a real error.
+
+! Preview: Snippet 25 ended.(417595+8847x16187392).
+<-><->
+      
+l.162 \section{Model}
+                     
+Not a real error.
+
+[25
+
+]
+
+Package natbib Warning: Citation `Frank2009a' on page 4 undefined on input line
+ 164.
+
+! Preview: Snippet 26 started.
+<-><->
+      
+l.164 ...he learner observes a set of situations $
+                                                  S$ with the goal of determ...
+
+Not a real error.
+
+! Preview: Snippet 26 ended.(403045+0x403862).
+<-><->
+      
+l.164 ... learner observes a set of situations $S$
+                                                   with the goal of determin...
+
+Not a real error.
+
+[26]
+! Preview: Snippet 27 started.
+<-><->
+      
+l.164 ...ing the lexicon of word-object mappings $
+                                                  L$ that produced them $P(L...
+
+Not a real error.
+
+! Preview: Snippet 27 ended.(403045+0x412509).
+<-><->
+      
+l.164 ...g the lexicon of word-object mappings $L$
+                                                   that produced them $P(L|S...
+
+Not a real error.
+
+[27]
+! Preview: Snippet 28 started.
+<-><->
+      
+l.164 ...-object mappings $L$ that produced them $
+                                                  P(L|S)$. Each of these sit...
+
+Not a real error.
+
+! Preview: Snippet 28 ended.(442368+147456x1927495).
+<-><->
+      
+l.164 ... mappings $L$ that produced them $P(L|S)$
+                                                  . Each of these situations...
+
+Not a real error.
+
+[28]
+! Preview: Snippet 29 started.
+<-><->
+      
+l.164 ...sts of two observed variables: objects ($
+                                                  O$) and words ($W$). In ad...
+
+Not a real error.
+
+! Preview: Snippet 29 ended.(403045+0x478118).
+<-><->
+      
+l.164 ...s of two observed variables: objects ($O$
+                                                  ) and words ($W$). In addi...
+
+Not a real error.
+
+[29]
+! Preview: Snippet 30 started.
+<-><->
+      
+l.164 ...ved variables: objects ($O$) and words ($
+                                                  W$). In addition, situatio...
+
+Not a real error.
+
+! Preview: Snippet 30 ended.(403045+0x656631).
+<-><->
+      
+l.164 ...d variables: objects ($O$) and words ($W$
+                                                  ). In addition, situations...
+
+Not a real error.
+
+[30]
+! Preview: Snippet 31 started.
+<-><->
+      
+l.164 ...ditional hidden variable: an intention ($
+                                                  I$) by the speaker to refe...
+
+Not a real error.
+
+! Preview: Snippet 31 ended.(403045+0x311158).
+<-><->
+      
+l.164 ...tional hidden variable: an intention ($I$
+                                                  ) by the speaker to refer ...
+
+Not a real error.
+
+[31]
+! Preview: Snippet 32 started.
+<-><->
+      
+l.168 \begin{align}
+                   
+Not a real error.
+
+! Preview: Snippet 32 ended.(655360+0x16187392).
+<-><->
+      
+l.170 \end{align}
+                 
+Not a real error.
+
+[32
+
+]
+! Preview: Snippet 33 started.
+<-><->
+      
+l.172 ...ween the word and one of the objects as $
+                                                  I$, the referential intent...
+
+Not a real error.
+
+! Preview: Snippet 33 ended.(403045+0x311158).
+<-><->
+      
+l.172 ...en the word and one of the objects as $I$
+                                                  , the referential intentio...
+
+Not a real error.
+
+[33]
+! Preview: Snippet 34 started.
+<-><->
+      
+l.174 \begin{align}
+                   
+Not a real error.
+
+! Preview: Snippet 34 ended.(1410859+0x16187392).
+<-><->
+      
+l.176 \end{align}
+                 
+Not a real error.
+
+[34
+
+]
+
+Package natbib Warning: Citation `Frank2009a' on page 4 undefined on input line
+ 178.
+
+! Preview: Snippet 35 started.
+<-><->
+      
+l.180 \begin{align}
+                   
+Not a real error.
+
+! Preview: Snippet 35 ended.(1410859+0x16187392).
+<-><->
+      
+l.182 \end{align}
+                 
+Not a real error.
+
+[35
+
+]
+
+LaTeX Warning: Reference `eq:wurwur3' on page 4 undefined on input line 184.
+
+
+Package natbib Warning: Citation `Frank2009a' on page 4 undefined on input line
+ 184.
+
+! Preview: Snippet 36 started.
+<-><->
+      
+l.184 ...{Frank2009a}, we propose that the word ($
+                                                  W$) used to label the inte...
+
+Not a real error.
+
+! Preview: Snippet 36 ended.(403045+0x656631).
+<-><->
+      
+l.184 ...rank2009a}, we propose that the word ($W$
+                                                  ) used to label the intend...
+
+Not a real error.
+
+[36]
+! Preview: Snippet 37 started.
+<-><->
+      
+l.184 ...l words in the lexicon for that object ($
+                                                  L_{o}$). In addition, we p...
+
+Not a real error.
+
+! Preview: Snippet 37 ended.(403045+65535x686121).
+<-><->
+      
+l.184 ...s in the lexicon for that object ($L_{o}$
+                                                  ). In addition, we propose...
+
+Not a real error.
+
+[37]
+! Preview: Snippet 38 started.
+<-><->
+      
+l.184 ...e lexicon that refer to the same object $
+                                                  O$, the lower the probabil...
+
+Not a real error.
+
+! Preview: Snippet 38 ended.(403045+0x478118).
+<-><->
+      
+l.184 ...lexicon that refer to the same object $O$
+                                                  , the lower the probabilit...
+
+Not a real error.
+
+[38]
+! Preview: Snippet 39 started.
+<-><->
+      
+l.184 ... lower the probability of that lexicon: $
+                                                  P(L_{o}) \propto \frac{1}{...
+
+Not a real error.
+
+! Preview: Snippet 39 ended.(495057+298452x3488794).
+<-><->
+      
+l.184 ...con: $P(L_{o}) \propto \frac{1}{|L_{o}|}$
+                                                  .
+Not a real error.
+
+[39]
+
+Package natbib Warning: Citation `Frank2010a' on page 4 undefined on input line
+ 186.
+
+
+Package natbib Warning: Citation `Shi2010' on page 4 undefined on input line 18
+6.
+
+! Preview: Snippet 40 started.
+<-><->
+      
+l.188 ... in defining he learner's beliefs about $
+                                                  P(I|O)$, the probability o...
+
+Not a real error.
+
+! Preview: Snippet 40 ended.(442368+147456x1900400).
+<-><->
+      
+l.188 ...ining he learner's beliefs about $P(I|O)$
+                                                  , the probability of the s...
+
+Not a real error.
+
+[40]
+
+Package natbib Warning: Citation `Frank2009a' on page 4 undefined on input line
+ 188.
+
+! Preview: Snippet 41 started.
+<-><->
+      
+l.188 ...tive is to assign some probability mass $
+                                                  \sigma$ to the hypothesize...
+
+Not a real error.
+
+! Preview: Snippet 41 ended.(253951+0x367794).
+<-><->
+      
+l.188 ... to assign some probability mass $\sigma$
+                                                   to the hypothesized refer...
+
+Not a real error.
+
+[41]
+! Preview: Snippet 42 started.
+<-><->
+      
+l.188 ...der evenly among the remaining objects: $
+                                                  \frac{1-\sigma}{|O|-1}$. T...
+
+Not a real error.
+
+! Preview: Snippet 42 ended.(495057+298452x1454812).
+<-><->
+      
+l.188 ...maining objects: $\frac{1-\sigma}{|O|-1}$
+                                                  . This Integrated model su...
+
+Not a real error.
+
+[42]
+! Preview: Snippet 43 started.
+<-><->
+      
+l.188 ...umes the other two as special cases: At $
+                                                  \sigma=1$, it becomes a Si...
+
+Not a real error.
+
+! Preview: Snippet 43 ended.(380108+0x1479168).
+<-><->
+      
+l.188 ...other two as special cases: At $\sigma=1$
+                                                  , it becomes a Single Refe...
+
+Not a real error.
+
+[43]
+! Preview: Snippet 44 started.
+<-><->
+      
+l.188 ...comes a Single Referent tracker, and at $
+                                                  \sigma=\frac{1}{|O|}$, it ...
+
+Not a real error.
+
+! Preview: Snippet 44 ended.(495057+298452x2011934).
+<-><->
+      
+l.188 ...nt tracker, and at $\sigma=\frac{1}{|O|}$
+                                                  , it becomes a parallel St...
+
+Not a real error.
+
+[44]
+
+LaTeX Warning: Reference `fig:design' on page 4 undefined on input line 188.
+
+
+Package natbib Warning: Citation `Luck1997' on page 4 undefined on input line 1
+88.
+
+
+Package natbib Warning: Citation `Wei2012' on page 4 undefined on input line 18
+8.
+
+! Preview: Snippet 45 started.
+<-><->
+      
+l.190 ...val between successive exposures, where $
+                                                  \gamma$ scales the strengt...
+
+Not a real error.
+
+! Preview: Snippet 45 ended.(253951+114688x346782).
+<-><->
+      
+l.190 ...ween successive exposures, where $\gamma$
+                                                   scales the strength of in...
+
+Not a real error.
+
+[45]
+! Preview: Snippet 46 started.
+<-><->
+      
+l.190 ...es the strength of initial encoding and $
+                                                  \lambda$ defines the rate ...
+
+Not a real error.
+
+! Preview: Snippet 46 ended.(409600+0x353619).
+<-><->
+      
+l.190 ...trength of initial encoding and $\lambda$
+                                                   defines the rate of decay...
+
+Not a real error.
+
+[46]
+
+Package natbib Warning: Citation `Anderson1991a' on page 5 undefined on input l
+ine 190.
+
+
+Package natbib Warning: Citation `Murdock1982' on page 5 undefined on input lin
+e 190.
+
+
+Package natbib Warning: Citation `Shiffrin1997' on page 5 undefined on input li
+ne 190.
+
+! Preview: Snippet 47 started.
+<-><->
+      
+l.192 \begin{align}
+                   
+Not a real error.
+
+! Preview: Snippet 47 ended.(753008+0x16187392).
+<-><->
+      
+l.194 \end{align}
+                 
+Not a real error.
+
+[47]
+! Preview: Snippet 48 started.
+<-><->
+      
+l.196 ...omly among the set of referents.\footnote
+                                                  {This formulation is equiv...
+
+Not a real error.
+
+
+Package natbib Warning: Citation `Luce1959' on page 5 undefined on input line 1
+96.
+
+
+Package natbib Warning: Citation `Luce1959' on page 5 undefined on input line 1
+96.
+
+! Preview: Snippet 48 ended.(517159+0x229376).
+<-><->
+      
+l.196 ...l has strength $\frac{1-M(L_{o})}{|O|}$.}
+                                                   We use this rule because ...
+
+Not a real error.
+
+[48]
+! Preview: Snippet 49 started.
+<-><->
+      
+l.198 \begin{align}
+                   
+Not a real error.
+
+! Preview: Snippet 49 ended.(1371932+0x16187392).
+<-><->
+      
+l.200 \end{align}
+                 
+Not a real error.
+
+[49]
+
+LaTeX Warning: Reference `tab:model' on page 5 undefined on input line 202.
+
+\figandtabbox3=\box58
+! Preview: Snippet 50 started.
+<-><->
+      
+l.209 Model & Log Likelihood &BIC & E1 $
+                                        r^{2}$ & E1+2 $r^{2}$ \\
+Not a real error.
+
+! Preview: Snippet 50 ended.(503968+0x563423).
+<-><->
+      
+l.209 Model & Log Likelihood &BIC & E1 $r^{2}$
+                                               & E1+2 $r^{2}$ \\
+Not a real error.
+
+[50]
+! Preview: Snippet 51 started.
+<-><->
+      
+l.209 ...Log Likelihood &BIC & E1 $r^{2}$ & E1+2 $
+                                                  r^{2}$ \\
+Not a real error.
+
+! Preview: Snippet 51 ended.(503968+0x563423).
+<-><->
+      
+l.209 ...kelihood &BIC & E1 $r^{2}$ & E1+2 $r^{2}$
+                                                   \\
+Not a real error.
+
+[51]
+         
+Sorry! Your choices following \figure or \table 
+are only [h] for `here', [t] for `top', [b] for `bottom', or [p] for `page'.
+I have ignored the [!] and inserted the figure or table at this point
+on the page. See documentation if you need more help.
+         
+\dblfigandtabbox2=\box59
+! Preview: Snippet 52 started.
+<-><->
+      
+l.242 	\center{\includegraphics
+                               [width=\textwidth]{figures/exp1and2fit}}
+Not a real error.
+
+<figures/exp1and2fit.pdf, id=457, 722.7pt x 325.215pt>
+File: figures/exp1and2fit.pdf Graphic file (type pdf)
+
+<use figures/exp1and2fit.pdf>
+Package pdftex.def Info: figures/exp1and2fit.pdf used on input line 242.
+(pdftex.def)             Requested size: 510.0pt x 229.49991pt.
+
+! Preview: Snippet 52 ended.(15040506+0x33423360).
+<-><->
+      
+l.242 ...cs[width=\textwidth]{figures/exp1and2fit}
+                                                  }
+Not a real error.
+
+[52 <./figures/exp1and2fit.pdf>]
+
+LaTeX Warning: Reference `tab:model' on page 5 undefined on input line 247.
+
+
+LaTeX Warning: Reference `fig:model_fit' on page 5 undefined on input line 247.
+
+
+! Preview: Snippet 53 started.
+<-><->
+      
+l.249 \section
+              {General Discussion}
+Not a real error.
+
+! Preview: Snippet 53 ended.(430276+10911x16187392).
+<-><->
+      
+l.249 \section{General Discussion}
+                                  
+Not a real error.
+
+[53
+
+]
+
+Package natbib Warning: Citation `Kachergis2012' on page 5 undefined on input l
+ine 255.
+
+
+Package natbib Warning: Citation `Vlach2013' on page 5 undefined on input line 
+255.
+
+
+Package natbib Warning: Citation `Yurovsky2014' on page 5 undefined on input li
+ne 255.
+
+
+Package natbib Warning: Citation `Waxman2009' on page 5 undefined on input line
+ 255.
+
+
+Package natbib Warning: Citation `Kachergis2013' on page 5 undefined on input l
+ine 255.
+
+
+Package natbib Warning: Citation `Marr1982' on page 5 undefined on input line 2
+57.
+
+
+Package natbib Warning: Citation `Frank2010a' on page 5 undefined on input line
+ 257.
+
+
+Package natbib Warning: Citation `Yurovsky2012c' on page 5 undefined on input l
+ine 257.
+
+
+Package natbib Warning: Citation `Yu2012b' on page 5 undefined on input line 25
+7.
+
+
+Package natbib Warning: Citation `Townsend1990' on page 5 undefined on input li
+ne 257.
+
+
+Package natbib Warning: Citation `Endress2005' on page 5 undefined on input lin
+e 259.
+
+
+Package natbib Warning: Citation `Frank2010a' on page 5 undefined on input line
+ 259.
+
+
+Package natbib Warning: Citation `McMurray2013' on page 5 undefined on input li
+ne 259.
+
+No file _region_.bbl.
+ !name(xsit_min_pnas.tex) !offset(-5) 
+\gdef\lastpage{7}
+
+Package natbib Warning: There were undefined citations.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 3853 strings out of 493488
+ 50210 string characters out of 3141326
+ 129983 words of memory out of 3000000
+ 7081 multiletter control sequences out of 15000+200000
+ 44264 words of font info for 75 fonts, out of 3000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 38i,11n,28p,1787b,363s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
+exlive/2012/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/loca
+l/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local
+/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/t
+exlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/tex
+live/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texli
+ve/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive
+/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/20
+12/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2012/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2012/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2012/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2012/texmf-d
+ist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2012/texmf-dist/fon
+ts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/u
+rw/times/utmr8a.pfb>
+Output written on _region_.pdf (53 pages, 789173 bytes).
+PDF statistics:
+ 516 PDF objects out of 1000 (max. 8388607)
+ 298 compressed objects within 3 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+

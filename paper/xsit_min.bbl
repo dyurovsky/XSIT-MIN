@@ -81,28 +81,6 @@ Bower, G.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-Clark%
-}{%
-Clark%
-}{%
-{\protect \APACyear {2003}}%
-}]{%
-Clark2003}
-\APACinsertmetastar {%
-Clark2003}%
-\begin{APACrefauthors}%
-Clark, E\BPBI V.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYear{2003}.
-\newblock
-\APACrefbtitle {First Language Acquisition} {First language acquisition}.
-\newblock
-\APACaddressPublisher{}{Cambridge University Press}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
 Crump%
 , McDonnell%
 \BCBL {}\ \BBA {} Gureckis%
@@ -245,35 +223,6 @@ Frank, M\BPBI C.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-Frank%
-, Tenenbaum%
-\BCBL {}\ \BBA {} Fernald%
-}{%
-Frank%
-\ \protect \BOthers {.}}{%
-{\protect \APACyear {2013}}%
-}]{%
-Frank2013a}
-\APACinsertmetastar {%
-Frank2013a}%
-\begin{APACrefauthors}%
-Frank, M\BPBI C.%
-, Tenenbaum, J\BPBI B.%
-\BCBL {}\ \BBA {} Fernald, A.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2013}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Social and discourse contributions to the determination
-  of reference in cross-situational word learning} {Social and discourse
-  contributions to the determination of reference in cross-situational word
-  learning}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Language Learning and Development}{9}{1}{1--24}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
 Gallistel%
 , Fairhurst%
 \BCBL {}\ \BBA {} Balsam%
@@ -302,34 +251,6 @@ Gallistel, C\BPBI R.%
   Sciences}{101}{}{13124--31}.
 \newblock
 \begin{APACrefDOI} \doi{10.1073/pnas.0404965101} \end{APACrefDOI}
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Gogate%
-}{%
-Gogate%
-}{%
-{\protect \APACyear {2010}}%
-}]{%
-Gogate2010}
-\APACinsertmetastar {%
-Gogate2010}%
-\begin{APACrefauthors}%
-Gogate, L\BPBI J.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2010}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {{Learning of syllable--object relations by preverbal
-  infants: The role of temporal synchrony and syllable distinctiveness}}
-  {{Learning of syllable--object relations by preverbal infants: The role of
-  temporal synchrony and syllable distinctiveness}}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Journal of Experimental Child
-  Psychology}{105}{}{178--197}.
-\newblock
-\begin{APACrefDOI} \doi{10.1016/j.jecp.2009.10.007} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -384,6 +305,36 @@ Johnson, E\BPBI K.%
   segmentation}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Developmental Science}{13}{}{339--345}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kachergis%
+, Yu%
+\BCBL {}\ \BBA {} Shiffrin%
+}{%
+Kachergis%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2012}}%
+}]{%
+Kachergis2012}
+\APACinsertmetastar {%
+Kachergis2012}%
+\begin{APACrefauthors}%
+Kachergis, G.%
+, Yu, C.%
+\BCBL {}\ \BBA {} Shiffrin, R\BPBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{An associative model of adaptive inference for learning
+  word-referent mappings.}} {{An associative model of adaptive inference for
+  learning word-referent mappings.}}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychonomic Bulletin \& Review}{19}{}{317-324}.
+\newblock
+\begin{APACrefDOI} \doi{10.3758/s13423-011-0194-6} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -465,6 +416,33 @@ Luce, R\BPBI D.%
   choice behavior: A theoretical analysis}.
 \newblock
 \APACaddressPublisher{}{New York, NY: Wiley}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Luck%
+\ \BBA {} Vogel%
+}{%
+Luck%
+\ \BBA {} Vogel%
+}{%
+{\protect \APACyear {1997}}%
+}]{%
+Luck1997}
+\APACinsertmetastar {%
+Luck1997}%
+\begin{APACrefauthors}%
+Luck, S\BPBI J.%
+\BCBT {}\ \BBA {} Vogel, E\BPBI K.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1997}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The capacity of visual working memory for features and
+  conjunctions} {The capacity of visual working memory for features and
+  conjunctions}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Nature}{390}{6657}{279--281}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -585,29 +563,27 @@ Medina, T\BPBI N.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
-Mintz%
+Murdock%
 }{%
-Mintz%
+Murdock%
 }{%
-{\protect \APACyear {2003}}%
+{\protect \APACyear {1982}}%
 }]{%
-Mintz2003}
+Murdock1982}
 \APACinsertmetastar {%
-Mintz2003}%
+Murdock1982}%
 \begin{APACrefauthors}%
-Mintz, T\BPBI H.%
+Murdock, B\BPBI B.%
 \end{APACrefauthors}%
 \unskip\
 \newblock
-\APACrefYearMonthDay{2003}{}{}.
+\APACrefYearMonthDay{1982}{}{}.
 \newblock
-{\BBOQ}\APACrefatitle {{Frequent frames as a cue for grammatical categories in
-  child directed speech}} {{Frequent frames as a cue for grammatical categories
-  in child directed speech}}.{\BBCQ}
+{\BBOQ}\APACrefatitle {A theory for the storage and retrieval of item and
+  associative information} {A theory for the storage and retrieval of item and
+  associative information}.{\BBCQ}
 \newblock
-\APACjournalVolNumPages{Cognition}{90}{}{91--117}.
-\newblock
-\begin{APACrefDOI} \doi{10.1016/S0010-0277(03)00140-9} \end{APACrefDOI}
+\APACjournalVolNumPages{Psychological Review}{89}{}{609--626}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -660,32 +636,6 @@ Reisenauer, R.%
   uncertain and nonuniform world}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Physical Review Letters}{110}{25}{258701}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Rohde%
-\ \BBA {} Frank%
-}{%
-Rohde%
-\ \BBA {} Frank%
-}{%
-{\protect \APACyear {{\protect \BIP {}}}}%
-}]{%
-Rohde2013}
-\APACinsertmetastar {%
-Rohde2013}%
-\begin{APACrefauthors}%
-Rohde, H.%
-\BCBT {}\ \BBA {} Frank, M\BPBI C.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{{\protect \BIP {}}}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Markers of topical discourse in child-directed speech}
-  {Markers of topical discourse in child-directed speech}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Cognitive Science}{}{}{}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -775,6 +725,33 @@ Shi, L.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Shiffrin%
+\ \BBA {} Steyvers%
+}{%
+Shiffrin%
+\ \BBA {} Steyvers%
+}{%
+{\protect \APACyear {1997}}%
+}]{%
+Shiffrin1997}
+\APACinsertmetastar {%
+Shiffrin1997}%
+\begin{APACrefauthors}%
+Shiffrin, R\BPBI M.%
+\BCBT {}\ \BBA {} Steyvers, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1997}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{A model for recognition memory: REM - retrieving
+  effectively from memory}} {{A model for recognition memory: REM - retrieving
+  effectively from memory}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychonomic Bulletin \& Review}{4}{}{145--166}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Siskind%
 }{%
 Siskind%
@@ -858,6 +835,34 @@ Smith, L\BPBI B.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Smith%
+\ \BBA {} Yu%
+}{%
+Smith%
+\ \BBA {} Yu%
+}{%
+{\protect \APACyear {2013}}%
+}]{%
+Smith2013}
+\APACinsertmetastar {%
+Smith2013}%
+\begin{APACrefauthors}%
+Smith, L\BPBI B.%
+\BCBT {}\ \BBA {} Yu, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Visual Attention is not enough: Individual differences
+  in statistical word-referent learning in infants} {Visual attention is not
+  enough: Individual differences in statistical word-referent learning in
+  infants}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Language, Learning, and Development}{9}{}{25--49}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Snodgrass%
 \ \BBA {} Vanderwart%
 }{%
@@ -884,6 +889,58 @@ Snodgrass, J\BPBI G.%
 \newblock
 \APACjournalVolNumPages{Journal of Experimental Psychology: Human Learning and
   Memory}{6}{2}{174--215}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Townsend%
+}{%
+Townsend%
+}{%
+{\protect \APACyear {1990}}%
+}]{%
+Townsend1990}
+\APACinsertmetastar {%
+Townsend1990}%
+\begin{APACrefauthors}%
+Townsend, J\BPBI T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1990}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Serial vs. parallel processes: Sometimes they look Like
+  {T}weedledum and {T}weedledee but they can (and should) be distinguished}
+  {Serial vs. parallel processes: Sometimes they look like {T}weedledum and
+  {T}weedledee but they can (and should) be distinguished}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychological Science}{1}{}{46--54}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Townsend%
+\ \BBA {} Wenger%
+}{%
+Townsend%
+\ \BBA {} Wenger%
+}{%
+{\protect \APACyear {2004}}%
+}]{%
+Townsend2004}
+\APACinsertmetastar {%
+Townsend2004}%
+\begin{APACrefauthors}%
+Townsend, J\BPBI T.%
+\BCBT {}\ \BBA {} Wenger, M\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2004}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The serial--parallel dilemma: A case study in a linkage
+  of theory and method} {The serial--parallel dilemma: A case study in a
+  linkage of theory and method}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychonomic Bulletin \& Review}{11}{}{391--418}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -996,6 +1053,35 @@ Vouloumanos, A.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Vul%
+, Hanus%
+\BCBL {}\ \BBA {} Kanwisher%
+}{%
+Vul%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2009}}%
+}]{%
+Vul2009}
+\APACinsertmetastar {%
+Vul2009}%
+\begin{APACrefauthors}%
+Vul, E.%
+, Hanus, D.%
+\BCBL {}\ \BBA {} Kanwisher, N.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2009}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Attention as inference: Selection is probabilistic;
+  Responses are all-or-none samples} {Attention as inference: Selection is
+  probabilistic; responses are all-or-none samples}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Experimental Psychology:
+  General}{138}{4}{540-560}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Waxman%
 \ \BBA {} Gelman%
 }{%
@@ -1020,6 +1106,35 @@ Waxman, S\BPBI R.%
   associations}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Trends in Cognitive Science}{13}{}{258--263}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Wei%
+, Wang%
+\BCBL {}\ \BBA {} Wang%
+}{%
+Wei%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2012}}%
+}]{%
+Wei2012}
+\APACinsertmetastar {%
+Wei2012}%
+\begin{APACrefauthors}%
+Wei, Z.%
+, Wang, X\BPBI J.%
+\BCBL {}\ \BBA {} Wang, D\BPBI H.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {From Distributed Resources to Limited Slots in
+  Multiple-Item Working Memory: A Spiking Network Model with Normalization}
+  {From distributed resources to limited slots in multiple-item working memory:
+  A spiking network model with normalization}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Neuroscience}{32}{33}{11228--11240}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -1056,25 +1171,26 @@ Yu%
 Yu%
 \ \BBA {} Smith%
 }{%
-{\protect \APACyear {2011}}%
+{\protect \APACyear {2012}}%
 }]{%
-Yu2011a}
+Yu2012b}
 \APACinsertmetastar {%
-Yu2011a}%
+Yu2012b}%
 \begin{APACrefauthors}%
 Yu, C.%
 \BCBT {}\ \BBA {} Smith, L\BPBI B.%
 \end{APACrefauthors}%
 \unskip\
 \newblock
-\APACrefYearMonthDay{2011}{}{}.
+\APACrefYearMonthDay{2012}{}{}.
 \newblock
-{\BBOQ}\APACrefatitle {{What you learn is what you see: Using eye movements to
-  study infant cross-situational word learning}} {{What you learn is what you
-  see: Using eye movements to study infant cross-situational word
-  learning}}.{\BBCQ}
+{\BBOQ}\APACrefatitle {{Modeling cross-situational word-referent learning:
+  Prior questions.}} {{Modeling cross-situational word-referent learning: Prior
+  questions.}}{\BBCQ}
 \newblock
-\APACjournalVolNumPages{Developmental Science}{14}{}{165--180}.
+\APACjournalVolNumPages{Psychological Review}{119}{}{21--39}.
+\newblock
+\begin{APACrefDOI} \doi{10.1037/a0026182} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%

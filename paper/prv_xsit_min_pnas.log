@@ -1,0 +1,439 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  16 APR 2014 21:57
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**&pdflatex prv_xsit_min_pnas.ini \nonstopmode\nofiles\PassOptionsToPackage{act
+ive,tightpage,auctex}{preview}\AtBeginDocument{\ifx\ifPreview\undefined\Require
+Package[displaymath,floats,graphics,textmath,sections,footnotes]{preview}[2004/
+11/05]\fi} \input xsit_min_pnas.tex
+(./prv_xsit_min_pnas.ini
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
+rman-x-2012-05-30, ngerman-x-2012-05-30, afrikaans, ancientgreek, ibycus, arabi
+c, armenian, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danis
+h, dutch, ukenglish, usenglishmax, esperanto, estonian, ethiopic, farsi, finnis
+h, french, friulan, galician, german, ngerman, swissgerman, monogreek, greek, h
+ungarian, icelandic, assamese, bengali, gujarati, hindi, kannada, malayalam, ma
+rathi, oriya, panjabi, tamil, telugu, indonesian, interlingua, irish, italian, 
+kurmanji, latin, latvian, lithuanian, mongolian, mongolianlmc, bokmal, nynorsk,
+ polish, portuguese, romanian, romansh, russian, sanskrit, serbian, serbianc, s
+lovak, slovenian, spanish, swedish, turkish, turkmen, ukrainian, uppersorbian, 
+welsh, loaded.
+(/usr/local/texlive/2012/texmf-dist/tex/latex/carlisle/mylatex.ltx)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/tools/.tex File ignored))
+No auxiliary output files.
+
+(./xsit_min_pnas.tex (./pnastwo.cls
+
+
+ Two Column Journal Style for the
+ Proceedings of the National Academy of Science 
+ Written by Amy Hendrickson, TeXnology, Inc., 9/04
+ 
+ This version is dated April 15, 2008
+
+
+Document Class: pnastwo 
+\affilcount=\count79
+\saveaffilcount=\count80
+\c@fnaffilcount=\count81
+\c@part=\count82
+\c@section=\count83
+\c@subsection=\count84
+\c@subsubsection=\count85
+\c@paragraph=\count86
+\c@subparagraph=\count87
+\c@figure=\count88
+\c@table=\count89
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+\bibskip=\skip43
+\footnum=\count90
+\savefootnum=\count91
+\abovefigcaptionskip=\skip44
+\abovetabcaptionskip=\skip45
+\abovetableskip=\skip46
+\belowtabcaptionskip=\dimen103
+\saveparskip=\dimen104
+\captionskip=\dimen105
+\PushOneColTopFig=\dimen106
+\PushOneColBotFig=\dimen107
+\PushOneColTopTab=\dimen108
+\PushOneColBotTab=\dimen109
+\PushTwoColTopFig=\dimen110
+\PushTwoColBotFig=\dimen111
+\PushTwoColTopTab=\dimen112
+\PushTwoColBotTab=\dimen113
+\intextfloatskip=\skip47
+\c@appfigure=\count92
+\c@apptable=\count93
+\c@appplate=\count94
+\checkforspace=\dimen114
+\savetopinsert=\box26
+\savebotinsert=\box27
+\secondsavetopinsert=\box28
+\secondsavebotinsert=\box29
+\firstcolbox=\box30
+\secondcolbox=\box31
+\thefirstbox=\box32
+\thesecondbox=\box33
+\firstcol=\dimen115
+\secondcol=\dimen116
+\checkheight=\dimen117
+\loopnum=\count95
+\firstcolsavefignum=\count96
+\footnotebox=\box34
+\ColUsed=\dimen118
+\FigSpace=\dimen119
+\testdblbotins=\box35
+\pageloopnum=\count97
+\endcolsavetopinsert=\box36
+\endcolsavebotinsert=\box37
+\testpagesize=\box38
+\savelastskip=\dimen120
+\partialpage=\box39
+\figandtabnumber=\count98
+\figandtabbox=\box40
+\pagefloatnumber=\count99
+\sizeoffloat=\box41
+\bogus=\count100
+\figinsert=\insert233
+\herebox=\box42
+\endfigbox=\box43
+\spanbox=\box44
+\dbltopins=\box45
+\dblbotins=\box46
+\dblbotskip=\skip48
+\dblfigandtabnumber=\count101
+\dblfigandtabbox=\box47
+\dblloopnum=\count102
+\savedblfigandtabnumber=\count103
+\dblspanherebox=\box48
+\captionwidth=\dimen121
+\widecaptionwidth=\dimen122
+\tablenoteloopnum=\count104
+\tablenotenum=\count105
+\c@theorem=\count106
+\c@lemma=\count107
+\c@definition=\count108
+\c@claim=\count109
+\c@alemma=\count110
+\c@remark=\count111
+\tablewide=\box49
+) (./pnastwoF.sty
+
+
+ -------------------------------------------
+ PostScript Fonts for PNAS One Column Journal Style
+ April 8b, 2008
+
+ IMPORTANT: If you use font encoding, as in \usepackage{T1enc},
+ please use it BEFORE \usepackage{pnasfont}, ie:
+ \documentclass{pnasone}
+ \usepackage{T1enc}
+ \usepackage[driver name]{color}
+
+ \usepackage{pnas}
+ -------------------------------------------
+ 
+ 
+) (/usr/local/texlive/2012/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip49
+\bibsep=\skip50
+LaTeX Info: Redefining \cite on input line 694.
+
+
+! LaTeX Error: \makeindex undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.795 \renewcommand\makeindex
+                             {\NAT@makeindex
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+\c@NAT@ctr=\count112
+) (/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count113
+))
+\Gin@req@height=\dimen123
+\Gin@req@width=\dimen124
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2009/06/22 v3.00
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+\@emptytoks=\toks15
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip51
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks16
+\ex@=\dimen125
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen126
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count114
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count115
+\leftroot@=\count116
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count117
+\DOTSCASE@=\count118
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box50
+\strutbox@=\box51
+\big@size=\dimen127
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count119
+\c@MaxMatrixCols=\count120
+\dotsspace@=\muskip10
+\c@parentequation=\count121
+\dspbrk@lvl=\count122
+\tag@help=\toks17
+\row@=\count123
+\column@=\count124
+\maxfields@=\count125
+\andhelp@=\toks18
+\eqnshift@=\dimen128
+\alignsep@=\dimen129
+\tagshift@=\dimen130
+\tagwidth@=\dimen131
+\totwidth@=\dimen132
+\lineht@=\dimen133
+\@envbody=\toks19
+\multlinegap=\skip52
+\multlinetaggap=\skip53
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+(/usr/local/texlive/2012/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2008/07/08 v3.8m The Babel package
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/babel/english.ldf
+Language: english 2005/03/30 v3.3o English support from the babel system
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2008/07/08 v3.8m Babel common definitions
+\babel@savecnt=\count126
+\U@D=\dimen134
+)
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/placeins/placeins.sty
+Package: placeins 2005/04/18  v 2.2
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 46.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 46.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
+LaTeX Font Info:    Font shape `OT1/ptmr8t/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptmr8t/b/n' tried instead on input line 46.
+
+LaTeX Font Info:    Font shape `OT1/ptmr8t/bx/it' in size <9> not available
+(Font)              Font shape `OT1/ptmr8t/b/it' tried instead on input line 46
+.
+LaTeX Font Info:    Try loading font information for OT1+phvr on input line 46.
+
+LaTeX Font Info:    No file OT1phvr.fd. on input line 46.
+
+
+LaTeX Font Warning: Font shape `OT1/phvr/m/n' undefined
+(Font)              using `OT1/cmr/m/n' instead on input line 46.
+
+ )
+Beginning to dump on file prv_xsit_min_pnas.fmt
+ (format=prv_xsit_min_pnas 2014.4.16)
+9383 strings of total length 143683
+99916 memory locations dumped; current usage is 293&95965
+6157 multiletter control sequences
+\font\nullfont=nullfont
+\font\OMX/cmex/m/n/10=cmex10
+\font\tenln=line10
+\font\tenlnw=linew10
+\font\tencirc=lcircle10
+\font\tencircw=lcirclew10
+\font\OT1/cmr/m/n/5=cmr5
+\font\OT1/cmr/m/n/7=cmr7
+\font\OT1/cmr/m/n/10=cmr10
+\font\OML/cmm/m/it/5=cmmi5
+\font\OML/cmm/m/it/7=cmmi7
+\font\OML/cmm/m/it/10=cmmi10
+\font\OMS/cmsy/m/n/5=cmsy5
+\font\OMS/cmsy/m/n/7=cmsy7
+\font\OMS/cmsy/m/n/10=cmsy10
+\font\OT1/cmr/m/n/9=cmr9
+\font\copyrighttextfont=cmss10 at 6.0pt
+\font\dropcapfont=cmssbx10 at 26.0pt
+\font\materialfont=cmss10 at 7.0pt
+\font\footlineit=cmssi10 at 7.0pt
+\font\materialitfont=cmssbx10 at 7.0pt
+\font\titlefont=cmssbx10 at 22.0pt
+\font\tabnumfont=cmssbx10 at 9.0pt
+\font\theoremfont=cmssbx10 at 8.0pt
+\font\sectionfont=cmssbx10
+\font\tabletextfont=cmss10 at 9.0pt
+\font\bibbffont=cmssbx10 at 6.0pt
+\font\tablenotefont=phvr at 6.0pt
+\font\dropcapfont=phvb at 24.5pt
+\font\footlinefont=phvr at 7.0pt
+\font\materialitfont=phvro at 7.0pt
+\font\fignumfont=phvb at 7.0pt
+\font\titlefont=phvb at 22.0pt
+\font\sectionfont=phvb at 9.0pt
+\font\tabnumfont=phvb at 8.0pt
+\font\abstractit=phvbo at 8.0pt
+\font\tablenotebffont=phvb at 6.0pt
+\font\bibitfont=phvbo at 6.0pt
+\font\tabletextfont=phvr at 7.5pt
+\font\tablenoteitfont=phvro at 6.0pt
+\font\OT1/ptmr8t/m/n/9=ptmr8t at 9.0pt
+\font\OT1/cmr/m/n/6=cmr6
+\font\OML/cmm/m/it/9=cmmi9
+\font\OML/cmm/m/it/6=cmmi6
+\font\OMS/cmsy/m/n/9=cmsy9
+\font\OMS/cmsy/m/n/6=cmsy6
+\font\OMX/cmex/m/n/9=cmex9
+\font\OMX/cmex/m/n/6=cmex7 at 6.0pt
+\font\OMX/cmex/m/n/5=cmex7 at 5.0pt
+\font\U/msa/m/n/9=msam10 at 9.0pt
+\font\U/msa/m/n/6=msam7 at 6.0pt
+\font\U/msa/m/n/5=msam5
+\font\U/msb/m/n/9=msbm10 at 9.0pt
+\font\U/msb/m/n/6=msbm7 at 6.0pt
+\font\U/msb/m/n/5=msbm5
+\font\OT1/ptmr8t/m/n/12=ptmr8t at 12.0pt
+\font\OT1/ptmr8t/m/n/6=ptmr8t at 6.0pt
+\font\OT1/ptmr8t/b/n/9=ptmb8t at 9.0pt
+\font\OT1/ptmr8t/b/it/9=ptmbi8t at 9.0pt
+\font\OT1/ptmr8t/m/it/9=ptmri8t at 9.0pt
+\font\OT1/cmtt10/m/n/9=cmtt10 at 9.0pt
+28511 words of font info for 60 preloaded fonts
+957 hyphenation exceptions
+Hyphenation trie of length 322747 has 7937 ops out of 35111
+  143 for language 75
+  110 for language 74
+  138 for language 73
+  7 for language 72
+  12 for language 71
+  127 for language 70
+  165 for language 69
+  71 for language 68
+  248 for language 67
+  62 for language 66
+  66 for language 65
+  119 for language 63
+  43 for language 62
+  58 for language 61
+  7 for language 60
+  194 for language 59
+  852 for language 58
+  852 for language 57
+  21 for language 56
+  38 for language 55
+  77 for language 54
+  58 for language 53
+  25 for language 52
+  27 for language 51
+  37 for language 50
+  229 for language 49
+  38 for language 48
+  21 for language 47
+  147 for language 35
+  185 for language 34
+  50 for language 33
+  18 for language 32
+  369 for language 31
+  235 for language 30
+  207 for language 29
+  76 for language 28
+  40 for language 27
+  88 for language 26
+  31 for language 25
+  113 for language 22
+  145 for language 21
+  377 for language 20
+  224 for language 19
+  265 for language 18
+  60 for language 17
+  63 for language 16
+  19 for language 15
+  14 for language 14
+  2 for language 13
+  21 for language 12
+  12 for language 11
+  5 for language 10
+  148 for language 7
+  97 for language 6
+  137 for language 5
+  374 for language 4
+  387 for language 3
+  2 for language 1
+  181 for language 0
+0 words of pdfTeX memory
+0 indirect objects
+No pages of output.
+PDF statistics:
+ 0 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

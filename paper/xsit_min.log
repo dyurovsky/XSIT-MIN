@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  2 APR 2014 10:49
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  16 APR 2014 14:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -329,11 +329,7 @@ File: babel.def 2008/07/08 v3.8m Babel common definitions
 (/usr/local/texlive/2012/texmf-dist/tex/latex/placeins/placeins.sty
 Package: placeins 2005/04/18  v 2.2
 )
-(./xsit_min.aux
-
-LaTeX Warning: Label `fig:exp1_2_data' multiply defined.
-
-)
+(./xsit_min.aux)
 \openout1 = `xsit_min.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
@@ -458,96 +454,96 @@ LaTeX Info: Redefining \BHBI on input line 130.
 ) [1{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ] [2] [3]
+<figures/multiple_refs.pdf, id=14, 433.62pt x 361.35pt>
+File: figures/multiple_refs.pdf Graphic file (type pdf)
+
+<use figures/multiple_refs.pdf>
+Package pdftex.def Info: figures/multiple_refs.pdf used on input line 50.
+(pdftex.def)             Requested size: 281.85587pt x 234.89125pt.
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4]
-<figures/design_fig.pdf, id=17, 1150.2975pt x 1371.1225pt>
-File: figures/design_fig.pdf Graphic file (type pdf)
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<use figures/design_fig.pdf>
-Package pdftex.def Info: figures/design_fig.pdf used on input line 56.
-(pdftex.def)             Requested size: 305.33789pt x 363.95245pt.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 57.
+ [5 <./figures/multiple_refs.pdf>]
+<figures/model_fig.pdf, id=58, 1574.88374pt x 712.6625pt>
+File: figures/model_fig.pdf Graphic file (type pdf)
+
+<use figures/model_fig.pdf>
+Package pdftex.def Info: figures/model_fig.pdf used on input line 59.
+(pdftex.def)             Requested size: 375.80544pt x 170.05293pt.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 60.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 57.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 60.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 57.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 60.
 
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 57.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 60.
 
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 57.
+(Font)              <12> on input line 60.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 57.
+(Font)              <8> on input line 60.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 57.
+(Font)              <6> on input line 60.
+ [6 <./figures/model_fig.pdf>] <figures/design_fig.pdf, id=187, 1122.97545pt x 
+627.30055pt>
+File: figures/design_fig.pdf Graphic file (type pdf)
 
+<use figures/design_fig.pdf>
+Package pdftex.def Info: figures/design_fig.pdf used on input line 68.
+(pdftex.def)             Requested size: 352.31625pt x 196.80626pt.
+ [7]
 
-LaTeX Warning: Float too large for page by 11.49222pt on input line 58.
+LaTeX Warning: Command \texttrademark invalid in math mode on input line 82.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[5] [6 <./figures/design_fig.pdf>] [7
-
-]
-
-LaTeX Warning: Command \texttrademark invalid in math mode on input line 74.
-
-[8]
+[8 <./figures/design_fig.pdf>] [9]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 81.
+(Font)              <10> on input line 89.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 81.
+(Font)              <7> on input line 89.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 81.
- [9]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 106.
+(Font)              <5> on input line 89.
 
- (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/t1lmtt.fd
+<figures/exp1_2_data.pdf, id=312, 722.7pt x 433.62pt>
+File: figures/exp1_2_data.pdf Graphic file (type pdf)
+
+<use figures/exp1_2_data.pdf>
+Package pdftex.def Info: figures/exp1_2_data.pdf used on input line 96.
+(pdftex.def)             Requested size: 469.75502pt x 281.85628pt.
+ [10]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11 <./figures/exp1_2_data.pdf>] [12] [13]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 189.
+
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-<figures/exp1_data.pdf, id=232, 722.7pt x 361.35pt>
-File: figures/exp1_data.pdf Graphic file (type pdf)
-
-<use figures/exp1_data.pdf>
-Package pdftex.def Info: figures/exp1_data.pdf used on input line 110.
-(pdftex.def)             Requested size: 469.75502pt x 234.88023pt.
- [10] [11] [12 <./figures/exp1_data.pdf>] [13
-
-]
-<figures/exp2_data.pdf, id=254, 722.7pt x 361.35pt>
-File: figures/exp2_data.pdf Graphic file (type pdf)
-
-<use figures/exp2_data.pdf>
-Package pdftex.def Info: figures/exp2_data.pdf used on input line 190.
-(pdftex.def)             Requested size: 469.75502pt x 234.88023pt.
- [14] [15]
-Underfull \vbox (badness 7415) has occurred while \output is active []
-
- [16 <./figures/exp2_data.pdf>] [17]
-<figures/exp1and2fit.pdf, id=276, 722.7pt x 325.215pt>
+) [14] [15] [16]
+[17] <figures/exp1and2fit.pdf, id=350, 722.7pt x 325.215pt>
 File: figures/exp1and2fit.pdf Graphic file (type pdf)
 
 <use figures/exp1and2fit.pdf>
-Package pdftex.def Info: figures/exp1and2fit.pdf used on input line 239.
+Package pdftex.def Info: figures/exp1and2fit.pdf used on input line 274.
 (pdftex.def)             Requested size: 469.75502pt x 211.3922pt.
  [18] [19 <./figures/exp1and2fit.pdf>]
-Underfull \vbox (badness 4752) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [20]
 (./xsit_min.bbl [21] [22
@@ -556,22 +552,25 @@ Underfull \vbox (badness 4752) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [23]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [24]
 Underfull \vbox (badness 6510) has occurred while \output is active []
 
- [24])
-AED endfloat: Processing end Figures and Tables [25] (./xsit_min.aux)
+ [25])
+AED endfloat: Processing end Figures and Tables [26] (./xsit_min.aux)
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 6110 strings out of 493488
- 86507 string characters out of 3141326
- 166114 words of memory out of 3000000
- 9268 multiletter control sequences out of 15000+200000
+ 6133 strings out of 493488
+ 86924 string characters out of 3141326
+ 163568 words of memory out of 3000000
+ 9290 multiletter control sequences out of 15000+200000
  74909 words of font info for 62 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 43i,11n,47p,1537b,437s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,10n,47p,1577b,438s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/lo
 cal/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texliv
 e/2012/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2012/texmf-d
@@ -588,15 +587,14 @@ lic/lm/lmmi8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr1
 0.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr
 /local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texli
 ve/2012/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2012/texm
-f-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2012/texmf-dist/fon
-ts/type1/public/lm/lmri12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/p
-ublic/lm/lmsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/l
-msy7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></
-usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on xsit_min.pdf (25 pages, 532695 bytes).
+f-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2012/texmf-dist/fon
+ts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/p
+ublic/lm/lmsy7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lm
+sy8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
+Output written on xsit_min.pdf (26 pages, 938219 bytes).
 PDF statistics:
- 383 PDF objects out of 1000 (max. 8388607)
- 269 compressed objects within 3 object streams
+ 457 PDF objects out of 1000 (max. 8388607)
+ 262 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,189 @@
+\documentclass{pnastwo}
+\usepackage{pnastwoF}
+\usepackage{graphicx}
+\usepackage{amssymb,amsfonts,amsmath}
+\usepackage[american]{babel}
+
+%% OPTIONAL MACRO DEFINITIONS
+\def\s{\sigma}
+
+% Fix wierd behavior which prevents table captions from appearing for
+% tables in the body of the article
+\makeatletter
+\long\def\@makecaption#1#2{%
+\ifx\@captype\table
+\let\currtabcaption\relax
+\gdef\currtabcaption{
+\tabnumfont\relax #1. \tabtextfont\relax#2\par
+\vskip\belowcaptionskip 
+}
+\else
+ \vskip\abovecaptionskip
+  \sbox\@tempboxa{\fignumfont#1.\figtextfont\hskip.5em\relax #2}%
+  \ifdim \wd\@tempboxa >\hsize
+\fignumfont\relax #1.\figtextfont\hskip.5em\relax#2\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+\fi
+}
+\makeatother
+
+% And another fix.  PNAS class loses the label of floats unless they       
+% were defined with the [h] option (so not really floats at all).  It      
+% all comes down to wrong scope in the following routine which pushes      
+% out the floats onto the page.  This is the fixed version:        
+\makeatletter                                  
+\def\DonormalEndcol{%                              
+%% top float ==>                               
+\ifx\toporbotfloat\xtopfloat%                          
+%% figure ==>                                  
+  \ifcaptypefig%                               
+  \expandafter\gdef\csname topfloat\the\figandtabnumber\endcsname{%    
+  \vbox{\vskip\PushOneColTopFig%                       
+  \unvbox\csname figandtabbox\the\loopnum\endcsname%               
+  \vskip\abovefigcaptionskip%                          
+  \csname caption\the\loopnum\endcsname%                   
+  \csname letteredcaption\the\loopnum\endcsname%               
+  \csname continuedcaption\the\loopnum\endcsname%              
+  \csname letteredcontcaption\the\loopnum\endcsname            
+  \ifredefining%                               
+  \csname label\the\loopnum\endcsname%                     
+  \expandafter\gdef\csname topfloat\the\loopnum\endcsname{}\fi}%       
+  \vskip\intextfloatskip%%                         
+  \vskip-4pt %% probably an artifact of topskip??              
+}%                                     
+\else%                                     
+%% plate ==>                                   
+  \ifcaptypeplate%                             
+  \expandafter\gdef\csname topfloat\the\figandtabnumber\endcsname{%    
+  \vbox{\vskip\PushOneColTopFig%                       
+  \unvbox\csname figandtabbox\the\loopnum\endcsname            
+  \vskip\abovefigcaptionskip                           
+  \csname caption\the\loopnum\endcsname                    
+  \csname letteredcaption\the\loopnum\endcsname                
+  \csname continuedcaption\the\loopnum\endcsname               
+  \csname letteredcontcaption\the\loopnum\endcsname            
+  \ifredefining                                
+  \csname label\the\loopnum\endcsname                      
+  \expandafter\gdef\csname topfloat\the\loopnum\endcsname{}\fi}        
+  \vskip\intextfloatskip %%                            
+  \vskip-4pt %% probably an artifact of topskip??              
+}%                                     
+\else% table ==>                               
+ \expandafter\gdef\csname topfloat\the\figandtabnumber\endcsname{%     
+ \vbox{\vskip\PushOneColTopTab %%                      
+ \csname caption\the\loopnum\endcsname                     
+  \csname letteredcaption\the\loopnum\endcsname                
+  \csname continuedcaption\the\loopnum\endcsname               
+  \csname letteredcontcaption\the\loopnum\endcsname            
+  \vskip\captionskip                               
+  \unvbox\csname figandtabbox\the\loopnum\endcsname            
+\ifredefining                                  
+\csname label\the\loopnum\endcsname                    
+\expandafter\gdef\csname topfloat\the\loopnum\endcsname{}\fi           
+}\vskip\intextfloatskip %% why don't we need this?             
+\vskip-10pt}                                   
+\fi\fi%                                    
+%                                      
+\else% bottom float                            
+%                                      
+\ifcaptypefig                                  
+\expandafter\gdef\csname botfloat\the\figandtabnumber\endcsname{%      
+\vskip\intextfloatskip                             
+\vbox{\unvbox\csname figandtabbox\the\loopnum\endcsname            
+\vskip\abovefigcaptionskip                         
+  \csname caption\the\loopnum\endcsname                    
+  \csname letteredcaption\the\loopnum\endcsname%               
+  \csname continuedcaption\the\loopnum\endcsname%              
+  \csname letteredcontcaption\the\loopnum\endcsname%               
+\vskip\PushOneColBotFig%%                          
+\ifredefining%                                 
+\csname label\the\loopnum\endcsname                    
+\expandafter\gdef\csname botfloat\the\loopnum\endcsname{}\fi}}%        
+\else                                      
+\ifcaptypeplate                                
+\expandafter\gdef\csname botfloat\the\figandtabnumber\endcsname{%      
+\vskip\intextfloatskip                             
+\vbox{\unvbox\csname figandtabbox\the\loopnum\endcsname            
+\vskip\abovefigcaptionskip                         
+  \csname caption\the\loopnum\endcsname                    
+  \csname letteredcaption\the\loopnum\endcsname%               
+  \csname continuedcaption\the\loopnum\endcsname%              
+  \csname letteredcontcaption\the\loopnum\endcsname%               
+\vskip\PushOneColBotFig%%                          
+\ifredefining%                                 
+\csname label\the\loopnum\endcsname                    
+\expandafter\gdef\csname botfloat\the\loopnum\endcsname{}\fi}}%        
+  \else% TABLE                                 
+\expandafter\gdef\csname botfloat\the\figandtabnumber\endcsname{%      
+  \vskip\intextfloatskip                           
+\vbox{\csname caption\the\loopnum\endcsname                
+  \csname letteredcaption\the\loopnum\endcsname                
+  \csname continuedcaption\the\loopnum\endcsname               
+  \csname letteredcontcaption\the\loopnum\endcsname%               
+  \vskip.5\intextfloatskip                         
+  \unvbox\csname figandtabbox\the\loopnum\endcsname%               
+\vskip\PushOneColBotTab                            
+\ifredefining%                                 
+\csname label\the\loopnum\endcsname                    
+\expandafter\gdef\csname botfloat\the\loopnum\endcsname{}\fi}}%        
+\fi\fi\fi}                                 
+\makeatother                                   
+
+\begin{document}
+
+\renewcommand\thetable{S\arabic{table}}
+
+\section{SI Text}
+
+\subsection{Computational Model Details}
+The computational models presented in the paper were implemented in R 3.02 using version 2.01 of the rstan package. Best-fitting parameters for Experiment 1 for each model were estimated by computing the mean value returned across 1000 samples. Raw data for all participants presented in the paper, as well as R code for running the models will be available on both authors' websites.
+
+\subsection{Mixed Effect Model Details}
+
+The mixed-effects models presented in the paper were implemented in R 3.02 using version 1.1-6 of the lme4 package. The models were constructed iteratively, with first main effects and then interaction terms added as long as they significantly improved the fit of the model to the data (measured by $\chi^{2}$). Full details of the models are presented in tables S1 and S2.
+
+\begin{table}[ht]
+\centering
+\parbox{11cm}{\caption{\textbf{Predictor estimates with standard errors and significance information for a logistic mixed-effects model predicting word learning in Experiment 1.}}}
+\begin{tabular}{lrrrrl}
+ Predictor & Estimate & Std. Error & $z$ value & $p$ value &  \\ 
+  \hline
+Intercept & 4.68 & 0.41 & 11.45 & <.001 & *** \\ 
+  Log(Referents) & -0.55 & 0.18 & -3.00 & <.001 & ** \\ 
+  Log(Interval) & -0.41 & 0.19 & -2.19 & .03 & * \\ 
+  Switch Trial & -1.44 & 0.43 & -3.34 & <.001 & *** \\ 
+  Log(Referents)*Log(Interval) & -0.13 & 0.09 & -1.45 & .15 &  \\ 
+  Log(Referents)*Switch Trial & -1.04 & 0.20 & -5.32 & <.001 & *** \\ 
+  Log(Interval)*Switch Trial & 0.13 & 0.20 & 0.65 & .51 &  \\ 
+  Log(Referents)*Log(Interval)*Switch Trial & 0.20 & 0.10 & 2.13 & .03 & * \\ 
+   \hline
+\end{tabular}
+\vspace{6pt}
+\parbox{11cm}{The model was specified as \small{\tt{Correct $\sim$  Log(Referents) * Log(Interval) * TrialType + (TrialType | subject)}}} 
+\label{tab:exp1_reg}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\parbox{10cm}{\caption{\textbf{Predictor estimates with standard errors and significance information for a logistic mixed-effects model predicting word learning in Experiment 2.}}}
+\begin{tabular}{lrrrrl}
+ Predictor & Estimate & Std. Error & $z$ value & $p$ value &  \\ 
+  \hline
+Intercept & 3.97 & 0.27 & 14.88 & <.001 & *** \\ 
+  Log(Referents) & -0.47 & 0.10 & -4.76 & <.001 & *** \\ 
+  Log(Interval) & -0.60 & 0.07 & -8.39 & <.001 & *** \\ 
+  New Label Trial & -4.02 & 0.30 & -13.31 & <.001 & *** \\ 
+  Log(Referents)*New Label Trial & -0.24 & 0.12 & -2.00 & .04 & * \\ 
+  Log(Interval)*New Label Trial & 0.58 & 0.08 & 6.99 & <.001 & *** \\ 
+   \hline
+\end{tabular}
+\vspace{6pt}
+\parbox{10cm}{The model was specified as \small{\tt{Correct $\sim$ Log(Referents) * TrialType + Log(Interval) * TrialType + (TrialType | subject)}}}
+\label{tab:exp2_reg}
+\end{table}
+
+\end{document}
+
