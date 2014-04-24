@@ -1,8 +1,0 @@
-\begin{figure*}[hbt]
-\ifnextchar[{\eatarg}{}
-[!htb]
-\center{\includegraphics[width=\textwidth]{figures/figure2}}
-\caption{\label{fig:exp1} Mother-child interactions were recorded from two views: a tripod-mounted camera (a), and a camera low on the child's forehead (b). Naming event accuracy was highly bimodal from both views (c). Only the most ambiguous events, as measured in Experiment 1, were used in Experiment 2}
-\end{figure*}
-\efloatseparator
- 
