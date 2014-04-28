@@ -1,17 +1,17 @@
 rm(list=ls())
 
 #get lab version of useful R functions
-source('~/Projects/Other/Ranalysis/useful.R')
+source('useful/useful.R')
+
+library(directlabels)
+library(dplyr)
+library(xtable)
 
 # Read in Experimental data from .csvs
 # all.data: trial-level
 # mss: subject-level
 # ms: condition-level
 source('load_from_csvs.R')
-
-library(directlabels)
-library(dplyr)
-library(xtable)
 
 library(rstan)
 set_cppo("fast")  # for best running speed
