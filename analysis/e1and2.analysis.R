@@ -2,7 +2,7 @@
 rm(list=ls())
 
 # Get Lab Version of Useful R Functions
-source('~/Projects/Other/Ranalysis/useful.R')
+source('useful/useful.R')
 
 # Read in Experimental data from .csvs
 # all.data: trial-level
