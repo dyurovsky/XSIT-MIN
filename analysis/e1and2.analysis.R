@@ -4,42 +4,17 @@ rm(list=ls())
 # Get Lab Version of Useful R Functions
 source('~/Projects/Other/Ranalysis/useful.R')
 
+# Read in Experimental data from .csvs
+# all.data: trial-level
+# mss: subject-level
+# ms: condition-level
+source('load_from_csvs.R')
+
 # Load Libraries for Data Manipulation and Graphing
 library(directlabels)
 library(stringr)
 library(dplyr)
 library(xtable)
-
-options(device="quartz")
-
-### read data
-e1 <- read.csv("../data/exp1_long.csv")
-e2 <- read.csv("../data/exp2_long.csv")
-
-d <- merge(e1,e2,all=TRUE)
-
-#### DATA MUNGING ######
-all.data <- d %.%
-  select(exp,subid,trialType,correct,numPicN,intervalN) %.%
-  mutate(
-    trialType = factor(trialType,levels=c("Same","Switch","New Label")),
-    intervalN = intervalN + 1,
-    log.numPic = log2(numPicN),
-    log.interval = log2(intervalN)) %.%
-  group_by(exp,numPicN,intervalN,trialType,subid)
-
-#### DESCRIPTIVES ######
-mss <- all.data %.% #By-subject 
-  summarise(
-    sums = sum(correct),
-    correct = mean(correct))
-
-ms <- mss %.% #By-condition, across subjects
-  summarise(
-    prop = mean(correct),
-    cih = ci.high(correct),
-    cil = ci.low(correct),
-    n = n())
 
 e1.data <- filter(all.data,exp=="Exp 1")
 e2.data <- filter(all.data,exp=="Exp 2")
