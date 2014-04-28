@@ -13,7 +13,8 @@
 % tables in the body of the article
 \makeatletter
 \long\def\@makecaption#1#2{%
-\ifx\@captype\table
+\ifx\@captype
+
 \let\currtabcaption\relax
 \gdef\currtabcaption{
 \tabnumfont\relax #1. \tabtextfont\relax#2\par
@@ -193,7 +194,7 @@ Word-object co-occurrence statistics are a powerful information source for vocab
 
 We focus here on the use of statistical regularities to learning the meanings of concrete nouns (known as cross-situational word learning; \citealp{Pinker1989, Siskind1996, Yu2007}). Because word meanings are reflected in the statistics of use across contexts, learners could discover the meaning of the word ``ball'' (for instance) by noticing that while it is heard across many ambiguous contexts, it often accompanies play with small, round toys. A growing body of experiments shows that adults, children, and infants are sensitive to such co-occurrence information, and can use it to map words to their referents \citep{Yu2007, Smith2008, Scott2012, Vlach2013}.
 
-Information about a word's meaning can thus be extracted from the environmental statistics of its use \cite{Frank2009a}. But this analysis is posed at what Marr \citep{Marr1982} called the ``computational theory'' level, dealing only with the nature of the information available to the learner. At the ``algorithmic'' level---the level of psychological instantiation in the mind of the learner---this idealized statistical computation could be realized in many ways, and the computation human learners actually perform is a topic of significant debate. 
+Information about a word's meaning can thus be extracted from the environmental statistics of its use \cite{Frank2009a}. But this analysis is posed at what Marr \citep{Marr1982} called the ``computational theory'' level: dealing only with the nature of the information available to the learner. At the ``algorithmic'' level---the level of psychological instantiation in the mind of the learner---this idealized statistical computation could be realized in many ways, and the computation human learners actually perform is a topic of significant debate. 
 
 Do human learners really maintain a representation of word-object co-occurrences? Some evidence suggests that humans are indeed gradual, parallel accumulators of statistical regularities about the entire system of word-object co-occurrences, simultaneously acquiring information about multiple candidate referents for the same word \citep{Vouloumanos2008, McMurray2012, Yurovsky2014}. Other evidence suggests that statistical learning is a focused, discrete process in which learners maintain a single hypothesis about the referent of any given word. This referent is either verified by future consistent co-occurrences or instead rejected, ``resetting'' the learning process \citep{Medina2011, Trueswell2013}. While both of these algorithmic-level solutions will, in the limit, produce successful word-referent mapping, they will do so at very different rates. In particular, if learners track a only a single referent for each word, it may be necessary to posit additional biases and constraints on learners in order for human-scale lexicons to be learned in human-scale time from the input available to children \citep{Vogt2012, Reisenauer2013}.
 
@@ -300,22 +301,37 @@ P(Correct) = M(L_{o}) + \frac{1-M(L_{o})}{|O|}
 All three models---Statistical Accumulation, Single Referent, and Integrated---were fit to the data from Experiment 1 at the individual-participant level. While the Single Referent and Statistical Accumulation models capture some of the structure in the data, each leaves significant variance unexplained. The Single Referent Model cannot predict above-chance performance on Switch trials, and the Statistical Accumulation model cannot predict a difference between the Same and Switch trials. The Integrated model, however, predicts 95\% of the variance in the data, and significantly outperforms the other models in BIC comparisons as well---a metric that trades off its superior performance against its one additional parameter (Table~\ref{tab:model}).
 
 \begin{table}[tb]
+\centering
 \caption{\textbf{Goodness of fit measures for models on Experiments 1 and 2}}
 \label{tab:model}
-\begin{center}
 \begin{tabular}{lrrrr}
-\hline
-Model & Log Likelihood &BIC & E1 $r^{2}$ & E1+2 $r^{2}$ \\
-\hline
-Statistical Accumulation & -5924 & 11863 & .32  & .67\\
-Single Referent & -5337 & 10690 & .83 & .77 \\
-\textbf{Integrated} & \textbf{-4854} & \textbf{9733} & \textbf{.95}  & \textbf{.98}\\
-\hline
+  Model & Log Likelihood & BIC & E1 $r^{2}$ & E1+2 $r^{2}$ \\ 
+  \hline
+  Statistical Accumulation & -6565 & -13115 & 0.33 & 0.66 \\ 
+  Single Referent & -5950 & -11884 & 0.83 & 0.77 \\ 
+  \textbf{Integrated} & \textbf{-5590} & \textbf{-11157} & \textbf{0.95} & \textbf{0.97} \\ 
+  \hline
 \end{tabular}
 The Integrated model outperformed both accounts on all measures.
-\end{center}
 \end{table}
 
+%\begin{table}[tb]
+%\caption{\textbf{Goodness of fit measures for models on Experiments 1 and 2}}
+%\label{tab:model}
+%\begin{center}
+%\begin{tabular}{lrrrr}
+%\hline
+%Model & Log Likelihood &BIC & E1 $r^{2}$ & E1+2 $r^{2}$ \\
+%\hline
+%Statistical Accumulation & -5924 & 11863 & .32  & .67\\
+%Single Referent & -5337 & 10690 & .83 & .77 \\
+%\textbf{Integrated} & \textbf{-4854} & \textbf{9733} & \textbf{.95}  & \textbf{.98}\\
+%\hline
+%\end{tabular}
+%The Integrated model outperformed both accounts on all measures.
+%\end{center}
+%\end{table}
+%
 %integrated
 %> model.sigma
 %[1] 0.5653685
