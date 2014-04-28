@@ -130,19 +130,31 @@
 \csname label\the\loopnum\endcsname                    
 \expandafter\gdef\csname botfloat\the\loopnum\endcsname{}\fi}}%        
 \fi\fi\fi}                                 
-\makeatother                                   
+\makeatother                          
 
 \begin{document}
 
-\section{SI Text}
+\renewcommand\thetable{S\arabic{table}}
 
-\subsection{Computational Model Details}
-
-The computational models presented in the paper were implemented in R 3.02 using version 2.20 of the \texttt{rstan} package. Best-fitting parameters for Experiment 1 for each model were estimated by computing the mean value returned across 1000 samples. Raw data for all participants presented in the paper and R code for running the models are available in a github repository at: \small{\tt{http://github.com/dyurovsky/XSIT-MIN}}
-
-\subsection{Mixed Effect Model Details}
-
-The mixed-effects models presented in the paper were implemented in R 3.02 using version 1.1-6 of the lme4 package. The models were constructed iteratively, with first main effects and then interaction terms added as long as they significantly improved the fit of the model to the data (measured by $\chi^{2}$). Full details of the model specification is presented in Tables S1 and S2.
+\begin{table}[ht]
+\centering
+\parbox{11cm}{\caption{\textbf{Predictor estimates with standard errors and significance information for a logistic mixed-effects model predicting word learning in Experiment 1.}}}
+\begin{tabular}{lrrrrl}
+ Predictor & Estimate & Std. Error & $z$ value & $p$ value &  \\ 
+  \hline
+Intercept & 4.68 & 0.41 & 11.45 & <.001 & *** \\ 
+  Log(Referents) & -0.55 & 0.18 & -3.00 & <.001 & ** \\ 
+  Log(Interval) & -0.41 & 0.19 & -2.19 & .03 & * \\ 
+  Switch Trial & -1.44 & 0.43 & -3.34 & <.001 & *** \\ 
+  Log(Referents)*Log(Interval) & -0.13 & 0.09 & -1.45 & .15 &  \\ 
+  Log(Referents)*Switch Trial & -1.04 & 0.20 & -5.32 & <.001 & *** \\ 
+  Log(Interval)*Switch Trial & 0.13 & 0.20 & 0.65 & .51 &  \\ 
+  Log(Referents)*Log(Interval)*Switch Trial & 0.20 & 0.10 & 2.13 & .03 & * \\ 
+   \hline
+\end{tabular}
+\vspace{6pt}
+\parbox{11cm}{The model was specified as \small{\tt{Correct $\sim$  Log(Referents) * Log(Interval) * TrialType + (TrialType | subject)}}} 
+\label{tab:exp1_reg}
+\end{table}
 
 \end{document}
-

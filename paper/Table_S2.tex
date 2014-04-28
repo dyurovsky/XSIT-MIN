@@ -130,19 +130,29 @@
 \csname label\the\loopnum\endcsname                    
 \expandafter\gdef\csname botfloat\the\loopnum\endcsname{}\fi}}%        
 \fi\fi\fi}                                 
-\makeatother                                   
+\makeatother                          
 
 \begin{document}
 
-\section{SI Text}
+\renewcommand\thetable{S\arabic{table}}
+\setcounter{table}{1}
 
-\subsection{Computational Model Details}
-
-The computational models presented in the paper were implemented in R 3.02 using version 2.20 of the \texttt{rstan} package. Best-fitting parameters for Experiment 1 for each model were estimated by computing the mean value returned across 1000 samples. Raw data for all participants presented in the paper and R code for running the models are available in a github repository at: \small{\tt{http://github.com/dyurovsky/XSIT-MIN}}
-
-\subsection{Mixed Effect Model Details}
-
-The mixed-effects models presented in the paper were implemented in R 3.02 using version 1.1-6 of the lme4 package. The models were constructed iteratively, with first main effects and then interaction terms added as long as they significantly improved the fit of the model to the data (measured by $\chi^{2}$). Full details of the model specification is presented in Tables S1 and S2.
-
+\begin{table}[ht]
+\centering
+\parbox{10cm}{\caption{\textbf{Predictor estimates with standard errors and significance information for a logistic mixed-effects model predicting word learning in Experiment 2.}}}
+\begin{tabular}{lrrrrl}
+ Predictor & Estimate & Std. Error & $z$ value & $p$ value &  \\ 
+  \hline
+Intercept & 3.97 & 0.27 & 14.88 & <.001 & *** \\ 
+  Log(Referents) & -0.47 & 0.10 & -4.76 & <.001 & *** \\ 
+  Log(Interval) & -0.60 & 0.07 & -8.39 & <.001 & *** \\ 
+  New Label Trial & -4.02 & 0.30 & -13.31 & <.001 & *** \\ 
+  Log(Referents)*New Label Trial & -0.24 & 0.12 & -2.00 & .04 & * \\ 
+  Log(Interval)*New Label Trial & 0.58 & 0.08 & 6.99 & <.001 & *** \\ 
+   \hline
+\end{tabular}
+\vspace{6pt}
+\parbox{10cm}{The model was specified as \small{\tt{Correct $\sim$ Log(Referents) * TrialType + Log(Interval) * TrialType + (TrialType | subject)}}}
+\label{tab:exp2_reg}
+\end{table}
 \end{document}
-

@@ -312,54 +312,17 @@ All three models---Statistical Accumulation, Single Referent, and Integrated---w
   \textbf{Integrated} & \textbf{-5590} & \textbf{-11157} & \textbf{0.95} & \textbf{0.97} \\ 
   \hline
 \end{tabular}
-The Integrated model outperformed both accounts on all measures.
+\raggedright
+The Integrated model outperformed both accounts on all measures. See SI Text for full implementation details.
 \end{table}
-
-%\begin{table}[tb]
-%\caption{\textbf{Goodness of fit measures for models on Experiments 1 and 2}}
-%\label{tab:model}
-%\begin{center}
-%\begin{tabular}{lrrrr}
-%\hline
-%Model & Log Likelihood &BIC & E1 $r^{2}$ & E1+2 $r^{2}$ \\
-%\hline
-%Statistical Accumulation & -5924 & 11863 & .32  & .67\\
-%Single Referent & -5337 & 10690 & .83 & .77 \\
-%\textbf{Integrated} & \textbf{-4854} & \textbf{9733} & \textbf{.95}  & \textbf{.98}\\
-%\hline
-%\end{tabular}
-%The Integrated model outperformed both accounts on all measures.
-%\end{center}
-%\end{table}
-%
-%integrated
-%> model.sigma
-%[1] 0.5653685
-%> model.lambda
-%[1] 0.1597503
-%> model.gamma
-%[1] 1.609619
-
-%guess
-%> model.lambda
-%[1] 0.1611523
-%> model.gamma
-%[1] 0.9107275
-
-%parallel
-%> model.lambda
-%[1] 0.1029245
-%> model.gamma
-%[1] 1.776237
-
 
  \begin{figure*}[tb]
 	\center{\includegraphics[width=.9\textwidth]{figures/exp1and2fit}}
-	\caption{\label{fig:model_fit} Predictions of the Integrated model for all conditions in Experiment 1 and 2. This model was able to account for 98\% of the variance in the data, significantly outperforming both Single Hypothesis and Parallel Accumulation models.}
+	\caption{\label{fig:model_fit} Predictions of the Integrated model for all conditions in Experiment 1 and 2. This model was able to account for 97\% of the variance in the data, significantly outperforming both Single Hypothesis and Parallel Accumulation models.}
 \end{figure*}
 
 
-We can use the models presented above, with parameters estimated from Experiment 1, to make parameter-free predictions about the data observed in Experiment 2. As before, the Single Referent and Statistical Accumulation models predict some of the variance in the new data, but leave much unexplained. The Integrated model makes near-perfect predictions about the new data---including the New Label condition---explaining 98\% of the combined variance in the data from Experiments 1 and 2 (Table~\ref{tab:model}). Fig.~\ref{fig:model_fit} presents model predictions for all experimental data. Taken together, Experiments 1 and 2 and the integrated model results thus provide strong evidence that learners track not only a single hypothesis for the most likely referent of a novel word, but also some approximation to distributional statistics---in particular, an approximation that becomes less precise as referential uncertainty increases.
+We can use the models presented above, with parameters estimated from Experiment 1, to make parameter-free predictions about the data observed in Experiment 2. As before, the Single Referent and Statistical Accumulation models predict some of the variance in the new data, but leave much unexplained. The Integrated model makes near-perfect predictions about the new data---including the New Label condition---explaining 97\% of the combined variance in the data from Experiments 1 and 2 (Table~\ref{tab:model}). Fig.~\ref{fig:model_fit} presents model predictions for all experimental data. Taken together, Experiments 1 and 2 and the integrated model results thus provide strong evidence that learners track not only a single hypothesis for the most likely referent of a novel word, but also some approximation to distributional statistics---in particular, an approximation that becomes less precise as referential uncertainty increases.
 
 \section{General Discussion}
 

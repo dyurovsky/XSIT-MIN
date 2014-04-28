@@ -1,0 +1,3 @@
+[submodule "analysis/useful"]
+	path = analysis/useful
+	url = https://github.com/langcog/Ranalysis
