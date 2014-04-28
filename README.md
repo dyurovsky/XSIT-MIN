@@ -1,4 +1,4 @@
-XSIT_MIN
+An Integrative Account of Constraints on Cross-Situational Learning
 ========
 
-Analyses for XSIT_MIN paper
+All Data, Analyses, and Computational Models for submitted paper
