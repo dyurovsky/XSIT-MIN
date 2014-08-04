@@ -1,5 +1,5 @@
 # Computes BIC Given a LogLikelihood, #Paramaters, and Data Set Size
-bic <- function(lp, params, n) {2*lp +params*log(n)}
+bic <- function(lp, params, n) {-2*lp +params*log(n)}
 
 # Computes Strength in Memory for Statistical Accumulation Model
 #
