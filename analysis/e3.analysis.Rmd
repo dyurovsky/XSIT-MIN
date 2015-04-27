@@ -1,0 +1,189 @@
+---
+title: "Experiments 3"
+author: "Dan Yurovsky"
+date: "2015-04-21"
+output:
+  html_document:
+    highlight: tango
+    theme: spacelab
+---
+
+Analysis of Experiment 3 from Yurovsky & Frank (under review)
+
+```{r setup, include=FALSE}
+library(knitr)
+options(scipen = 1, digits = 3)
+opts_chunk$set(message=FALSE, warning=FALSE, cache=TRUE)
+```
+
+
+Load required libraries.
+```{r, cache=FALSE}
+source('helpers.R')
+library(directlabels)
+library(stringr)
+library(xtable)
+library(tidyr)
+library(readr)
+library(magrittr)
+```
+
+
+Read in Experimental data from .csv
+```{r,cache=FALSE}
+e3 <- read_csv("../data/exp3_long.csv")
+```
+
+Data Munging
+```{r}
+# test.data: trial-level
+test.data <- e3 %>%
+  filter(trialType != "Practice") %>%
+  mutate(trialType = factor(trialType)) %>%
+  group_by(numPics,trialType,worker)
+
+##### DATA MUNGING ######
+# mss: subject-level test data
+mss <- test.data %>%
+  summarise(Correct = mean(correct),
+            Familiar = mean(familiar)) %>%
+  gather(measure,resp,Correct:Familiar) %>%
+  group_by(numPics,trialType,measure)
+
+# ms: condition-level
+ms <- mss %>%
+  summarise_each(funs(mean,ci.low,ci.high),resp) %>%
+  group_by(numPics,measure) %>%
+  mutate(Item = ifelse(measure == "Correct",
+                       word(trialType),word(trialType,3)))
+```
+
+Functions for comparisons against chance
+```{r}
+# Logit function for passing chance performance offsets to glms
+logit <- function(x) {log(x/(1-x))}
+
+
+# Fits logistic regressions to estimate coefficients and significance values 
+# for individual factors
+test.chance <- function(data,groups,formula,row=1) {
+  chance.tests <- data %>%
+    group_by_(.dots = groups) %>%
+    do(chance.lm = summary(glm(formula,offset=logit(1/numPics),
+                               family="binomial", data = .)))
+  
+  chance.tests$betas  <- sapply(chance.tests$chance.lm,
+                                function(x) {x$coefficients[row,1]})
+  chance.tests$zs <- sapply(chance.tests$chance.lm,
+                            function(x) {x$coefficients[row,3]})
+  chance.tests$ps <- sapply(chance.tests$chance.lm,
+                            function(x) {x$coefficients[row,4]})
+  
+  return(select(chance.tests,-chance.lm))
+  }
+```
+
+Compare Correct against chance
+```{r}
+e3.chance.tests <- test.chance(test.data,
+                               groups = c("trialType","numPics"),
+                               formula = as.formula("correct ~ 1")) %>%
+  mutate(stars = getstars(ps))
+
+kable(e3.chance.tests,
+      col.names = c("Trial Type", "Referents",
+                    "$\\beta$","$z$ value","$p$ value",""))
+```
+
+Comparing Correct against Familiar
+```{r}
+comp.data <- gather(test.data,measure,resp,familiar,correct) 
+
+comp.tests <- test.chance(comp.data, groups = c("trialType","numPics"),
+                          formula = as.formula("resp ~ 1 + measure"),
+                          row=2) %>%
+  mutate(stars = getstars(ps))
+
+
+kable(comp.tests,
+      col.names = c("Trial Types","Referents",
+                    "$\\beta$","$z$ value","$p$ value",""))
+```
+
+Mixed Effects Models
+```{r}
+# Experiment 3 
+e3.lmer <- glmer(correct ~ log(numPics) * Target + 
+                   log(numPics) * Competitor +(1 |worker),
+                 offset = logit(1/numPics), family="binomial", 
+                 control=glmerControl(optimizer = "bobyqa"), 
+                 data = test.data)
+
+#TABLE A1
+e3.tab <- as.data.frame(summary(e3.lmer)$coef)
+e3.tab$Predictor <- c("Intercept","Log(Referents)","Switch Target",
+                      "Switch Competitor","Log(Referents)*Switch Target",
+                      "Log(Interval)*Switch Competitor")
+rownames(e3.tab) <- NULL
+e3.tab <- e3.tab[,c(5,1:4)]
+e3.tab$stars <- sapply(e3.tab[,5],getstars)
+names(e3.tab)[6] <- ""
+
+names(e3.tab)[4:5] <- c("$z$ value","$p$ value")
+
+kable(e3.tab)
+
+# For Latex in Paper
+# print(xtable(e3.tab,
+#              align = c("l","l","r","r","r","r","l"),
+#              label = "tab:exp3_reg"),
+#       include.rownames=FALSE,hline.after=c(0,nrow(e3.tab)),
+#       sanitize.text.function=function(x){x})
+
+# Show that performance decreases across trials
+e3.trial.lmer <- glmer(correct ~ log(numPics) * Target +log(numPics) * Competitor +
+                       itemNum + (1 |worker),
+                       offset = logit(1/numPics), family="binomial", 
+                       control=glmerControl(optimizer = "bobyqa"), 
+                       data = test.data)
+
+
+e3.trial.tab <- as.data.frame(summary(e3.trial.lmer)$coef)
+e3.trial.tab$Predictor <- c("Intercept","Log(Referents)","Switch Target",
+                            "Switch Competitor","Trial Number", 
+                            "Log(Referents)*Switch Target", 
+                            "Log(Interval)*Switch Competitor")
+rownames(e3.trial.tab) <- NULL
+e3.trial.tab <- e3.trial.tab[,c(5,1:4)]
+e3.trial.tab$stars <- sapply(e3.trial.tab[,5],getstars)
+names(e3.trial.tab)[6] <- ""
+
+names(e3.trial.tab)[4:5] <- c("$z$ value","$p$ value")
+
+kable(e3.trial.tab)
+```
+
+Plot performance in Experiment 3
+```{r,width=7,height=5}
+#Figure A1
+ggplot(ms,aes(x=as.numeric(trialType), y=mean,
+              label=measure,color=measure)) +
+  facet_grid(.~ numPics,
+             labeller = function(var,value){
+               return(paste(value,"Referents",sep=" "))}) +
+  geom_pointrange(aes(ymin = mean - ci.low,
+                      ymax = mean + ci.high),
+                  size = .8) +
+  scale_x_continuous(name = "Trial Type",
+                     labels = levels(ms$trialType),
+                     limits = c(1,5),
+                     breaks = 1:4) +
+  scale_y_continuous(name = "Proportion Choosing Referent", limits=c(0,1))+
+  geom_hline(aes(yintercept = 1/numPics),lty=2)+
+  theme_bw(base_size=14) +
+  theme(panel.grid=element_blank(),
+        axis.text.x = element_text(angle = 45, hjust = 1),
+        legend.position="none") +
+  scale_color_grey(start=.2,end=.5) +
+  geom_dl(method=list("last.qp",cex=1,dl.trans(x=x +.25)))
+```

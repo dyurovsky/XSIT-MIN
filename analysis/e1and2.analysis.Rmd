@@ -1,0 +1,226 @@
+---
+title: "Experiments 1 and 2"
+author: "Dan Yurovsky"
+date: "2015-04-21"
+output:
+  html_document:
+    highlight: tango
+    theme: spacelab
+---
+
+Analysis of Experiments 1 and 2 from Yurovsky & Frank (under review)
+
+```{r setup, include=FALSE}
+library(knitr)
+options(scipen = 1, digits = 3)
+opts_chunk$set(message=FALSE, warning=FALSE, cache=TRUE)
+```
+
+Load required libraries.
+```{r, cache=FALSE}
+# Get Lab Version of Useful R Functions
+source('~/Projects/Other/Ranalysis/useful_dplyr.R')
+library(directlabels)
+library(stringr)
+library(xtable)
+library(tidyr)
+library(readr)
+library(magrittr)
+```
+
+Read in Experimental data from .csvs
+```{r,cache=FALSE}
+e1 <- read_csv("../data/exp1_long.csv") %>%
+  mutate(exp = "Experiment 1")
+e2 <- read_csv("../data/exp2_long.csv") %>%
+  mutate(exp = "Experiment 2")
+```
+
+Data Munging
+```{r}
+# all.data: trial-level
+all.data <- bind_rows(e1,e2) %>%
+  select(exp,subid,trialType,correct,numPicN,intervalN) %>%
+  mutate(
+    exp = factor(exp),
+    trialType = factor(trialType,levels=c("Same","Switch","New Label")),
+    intervalN = intervalN + 1,
+    log.numPic = log2(numPicN),
+    log.interval = log2(intervalN)) %>%
+  group_by(exp,intervalN,numPicN,trialType,subid)
+
+##### DESCRIPTIVES ######
+# mss: subject-level
+mss <- all.data %>%
+  summarise(sum = sum(correct),
+            correct = mean(correct)) %>%
+  arrange(exp,trialType,intervalN,numPicN)
+
+# ms: condition-level
+ms <- mss %>% #By-condition, across subjects
+  summarise_each(funs(ci.high,ci.low,mean),correct) %>%
+  left_join(summarise(mss,n = n())) %>%
+  arrange(exp,trialType,intervalN,numPicN) %>%
+  ungroup() %>%
+  mutate(graph.trialType = factor(trialType,
+                                  labels=c("Same","Switch","New\nLabel")),
+         graph.numPic = paste(numPicN, " Referents", sep=""))
+```
+
+Functions for comparisons against chance
+```{r}
+# Logit function for passing chance performance offsets to glms
+logit <- function(x) {log(x/(1-x))}
+
+# Fits logistic regressions to estimate coefficients and significance values 
+# for individual factors
+test.chance <- function(data,groups,formula,row=1) {
+  chance.tests <- data %>%
+    group_by_(.dots = groups) %>%
+    do(chance.lm = summary(glm(formula,offset=logit(1/numPicN),
+                               family="binomial", data = .)))
+  
+  chance.tests$betas  <- sapply(chance.tests$chance.lm,
+                                function(x) {x$coefficients[row,1]})
+  chance.tests$zs <- sapply(chance.tests$chance.lm,
+                            function(x) {x$coefficients[row,3]})
+  chance.tests$ps <- sapply(chance.tests$chance.lm,
+                            function(x) {x$coefficients[row,4]})
+  
+  return(select(chance.tests,-chance.lm))
+  }
+```
+
+Experiment 1 
+```{r}  
+e1.data <- filter(all.data, exp=="Experiment 1")
+
+
+# Uses a logistic regression with an chance-level offset to ask whether performance
+# in each Num Referents x Interval condition is different from chance
+e1.chance.tests <- test.chance(e1.data,
+                               groups = c("trialType","numPicN","intervalN"),
+                               formula = as.formula("correct ~ 1")) %>%
+  mutate(stars = getstars(ps))
+
+kable(e1.chance.tests,
+      col.names = c("Trial Type", "Referents", "Interval",
+                    "$\\beta$","$z$ value","$p$ value",""))
+```
+
+Experiment 2
+```{r}
+e2.data <- filter(all.data, exp=="Experiment 2")
+
+# Uses a logistic regression to ask whether Trial Type (Switch vs. New Label)
+# predicts difference in accuracy for each Num Referents x Interval Condition
+e2.chance.tests <- test.chance(e2.data,
+                               groups = c("trialType","numPicN","intervalN"),
+                               formula = as.formula("correct ~ 1")) %>%
+  mutate(stars = getstars(ps))
+
+kable(e2.chance.tests,
+      col.names = c("Trial Type", "Referents", "Interval",
+                    "$\\beta$","$z$ value","$p$ value",""))
+```
+
+Comparing Switch against New Label
+```{r}
+comp.data <- filter(all.data,trialType == "Switch" | 
+                      trialType == "New Label") %>%
+  ungroup() %>%
+  mutate(trialType = factor(trialType,levels=c("New Label", "Switch")))
+
+comp.tests <- test.chance(comp.data, groups = c("numPicN","intervalN"),
+                          formula = as.formula("correct ~ 1 + trialType"),
+                          row=2) %>%
+  mutate(stars = getstars(ps))
+
+
+kable(comp.tests,
+      col.names = c("Referents", "Interval",
+                    "$\\beta$","$z$ value","$p$ value",""))
+```
+
+Mixed Effects Models
+```{r}
+# Experiment 1 
+e1.lmer <- glmer(correct ~ log.numPic * trialType + trialType*log.interval + 
+                   (trialType | subid), offset = logit(1/numPicN),
+                 family="binomial", 
+                 control=glmerControl(optimizer = "bobyqa"), 
+                 data = e1.data)
+
+#TABLE 1
+e1.tab <- as.data.frame(summary(e1.lmer)$coef)
+e1.tab <- e1.tab[c(1,2,4,3,5,6),] #reorder for consistency
+e1.tab$Predictor <- c("Intercept", "Log(Referents)", "Log(Interval)",
+                      "Switch Trial", "Log(Referents)*Switch Trial", 
+                      "Log(Interval)*Switch Trial")
+rownames(e1.tab) <- NULL
+e1.tab <- e1.tab[,c(5,1:4)]
+e1.tab$stars <- sapply(e1.tab[,5],getstars)
+names(e1.tab)[6] <- ""
+
+names(e1.tab)[4:5] <- c("$z$ value","$p$ value")
+
+kable(e1.tab)
+ 
+# For Latex in paper
+# print(xtable(e1.tab,
+#              align = c("l","l","r","r","r","r","l"),
+#              label = "tab:exp1_reg"),
+#       include.rownames=FALSE,hline.after=c(0,nrow(e1.tab)),
+#       sanitize.text.function=function(x){x})
+
+# Experiment 2
+e2.lmer <- glmer(correct ~ log.numPic + trialType + 
+                   trialType * log.interval + (trialType | subid), 
+                 offset = logit(1/numPicN),
+                 control=glmerControl(optimizer = "bobyqa"),
+                 family="binomial", data = e2.data)
+
+# #TABLE 2
+e2.tab <- as.data.frame(summary(e2.lmer)$coef)
+e2.tab <- e2.tab[c(1,2,4,3,5),] #reorder for consistency
+e2.tab$Predictor <- c("Intercept","Log(Referents)","Log(Interval)",
+                      "New Label Trial",
+                      "Log(Interval)*New Label Trial")
+rownames(e2.tab) <- NULL
+e2.tab <- e2.tab[,c(5,1:4)]
+e2.tab$stars <- sapply(e2.tab[,5],getstars)
+names(e2.tab)[6] <- ""
+
+names(e2.tab)[4:5] <- c("$z$ value","$p$ value")
+
+kable(e2.tab)
+
+# For Latex in paper
+# print(xtable(e2.tab,
+#              align = c("l","l","r","r","r","r","l"),
+#              label = "tab:exp2_reg"),
+#       include.rownames=FALSE,hline.after=c(0,nrow(e2.tab)),
+#       sanitize.text.function=function(x){x})
+```
+
+Plot performance in Experiments 1 and 2
+```{rfig.width=10,figh.height=5.5}
+# Figure 3
+#quartz(width=10,height=5.5,title = "Experiment 1 and 2 Data")
+ggplot(ms, aes(x=intervalN, y=mean, colour=trialType,label=graph.trialType))+
+  facet_grid(exp ~ graph.numPic) +
+  geom_pointrange(aes(ymin = mean-ci.low,
+                    ymax = mean+ci.high),
+                size = .8) +
+  geom_hline(aes(yintercept=1/numPicN),lty=2)  +
+  scale_y_continuous(limits = c(0,1),breaks=seq(0,1,.25),
+                     name = "Prop. Choosing Repeated Referent") +
+  scale_x_continuous(limits=c(.9,10.3), breaks=c(1, 2, 4, 8),
+                     name = "Intervening Trials") + 
+  theme_bw(base_size=18) +
+  theme(legend.position="none", 
+        axis.title.y=element_text(vjust=0.27),
+        panel.grid = element_blank()) +
+  scale_color_grey(start=.2,end=.5) +
+  geom_dl(method=list("last.qp",cex=1,dl.trans(x=x +.2)))
+```
