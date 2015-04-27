@@ -35,7 +35,7 @@ To distinguish between these two accounts, previous experiments exposed learners
 
 \vspace{24 pt}
 
- \begin{figure}[t]
+ \begin{figure}[tb]
 	\center{\includegraphics[width=.8\textwidth]{figures/multiple_refs}}
 	\caption{\label{fig:mrefs} Results of previous experiments investigating representations for cross-situational learning. These experiments vary along a number of dimensions, but two appear to predict whether multiple-referent tracking is observed: the number of referents present on each trial, and the interval between trials for the referent.}
 \end{figure}
@@ -44,16 +44,9 @@ These mixed results expose a fundamental gap in our understanding of the mechani
 
 We propose that differences in task difficulty may explain diverging results across experiments. Two salient dimensions vary across previous studies: ambiguity of individual learning instances, and the interval between successive exposures to the same label (Fig.~\ref{fig:mrefs}). As attentional and memory demands increase, learners may shift from statistical accumulation to single-referent tracking \cite{Smith2011a, Trueswell2013}. 
 
-We present a strong test of this hypothesis, adapting a paradigm first introduced in \cite{Bower1963} to study the information learners store in concept identification. We parametrically manipulated both the ambiguity of individual learning trials and the interval between them and measured multiple-referent tracking at the individual-participant level. Even at the maximum difficulty tested, learners tracked multiple referents for each word: Strong evidence against a qualitative shift from statistical accumulation to single-referent tracking. However, the data also show that learners encode the referents with differing strengths, remembering their hypothesized referent much better. Thus, each previous account appears to be partially correct. 
+We present a strong test of this hypothesis, adapting a paradigm first introduced in \citeA{Bower1963} to study the information learners store in concept identification. We parametrically manipulated both the ambiguity of individual learning trials and the interval between them and measured multiple-referent tracking at the individual-participant level. Even at the maximum difficulty tested, learners tracked multiple referents for each word: Strong evidence against a qualitative shift from statistical accumulation to single-referent tracking. However, the data also show that learners encode the referents with differing strengths, remembering their hypothesized referent much better. Thus, each previous account appears to be partially correct. 
 
- \begin{figure}[t]
-	\center{\includegraphics[width=.8\textwidth]{figures/model_fig}}
-	\caption{\label{fig:models} A representation of the continuum between the Statistical Accumulation and Single Referent Tracking models as learners' attention is varied from evenly distributed ($\sigma=\frac{1}{|O|}$) to focused on a single referent ($\sigma=1$), as well as the best-fitting integrated model's position along this continuum.}
-\end{figure}
-
-To clarify how these two accounts are related, we implemented both single-referent tracking and statistical accumulation as computational models. We also extended these accounts into an integrative model that subsumes both as special cases along a continuum. Only the integrative model accounted for our full dataset. Further, this model was able to make nearly perfect parameter-free predictions for a follow-up experiment that was designed to verify that learners encode mappings rather than individual words and objects. We conclude that cross-situational word learning is best characterized by an integrative account: Learners track both a single target referent and an approximation to the co-occurrence statistics; the strength of this approximation varies with the complexity of the learning environment (Fig.~\ref{fig:models}).
-
-\vspace{-6pt}
+To clarify how these two accounts are related, we implemented both single-referent tracking and statistical accumulation as computational models. We also extended these accounts into an integrative model that subsumes both as special cases along a continuum. Only the integrative model accounted for our full dataset. Further, this model was able to make nearly perfect parameter-free predictions for a follow-up experiment that was designed to verify that learners encode mappings rather than individual words and objects. We conclude that cross-situational word learning is best characterized by an integrative account: Learners track both a single target referent and an approximation to the co-occurrence statistics; the strength of this approximation varies with the complexity of the learning environment.
 
 \section{Experiment 1}
 
@@ -86,35 +79,34 @@ Because participants performed this task over the internet, it was important to 
 
 \subsection{Results}
 
-Do statistical learners encode multiple referents for each word, or do they instead encode only a single hypothesized referent? We compared the distribution of correct responses made by each participant to the distribution expected if participants were selecting randomly (defined by a Binomial distribution with four trials and a probability of success of  $1/\# Referents$). The top row of Fig.~\ref{fig:exp1_2_data} shows participants' accuracies in identifying the referent of each word in all conditions for both kinds of trials (Same and Switch). At all Referent and Interval levels, both for Same and for Switch trials, participants' responses differed from those expected by chance (smallest $\chi^{2}(4) = 15.07$, all $p$s $< .01$). Thus, learners encoded more than a single hypothesis in ambiguous word learning situations, even under high levels of memory and attentional load. 
+Do statistical learners encode multiple referents for each word, or do they instead encode only a single hypothesized referent? The top row of Fig.~\ref{fig:exp1_2_data} shows participants' accuracies in identifying the referent of each word in all conditions for both kinds of trials (Same and Switch). To determine whether participants were learning word-object mappings, we asked whether these accuracies were significantly different than would be expected by chance. Because these accuracies were estimated from a small number of discrete choices for each participant in each condition, they violate the assumptions of standard continuous analyses like $t$ tests. A better model of chance behavior for this data is a $Binomial$ distribution with a probability of success $p=1/\# Referents$. 
 
- \begin{figure}[t]
+ \begin{figure}[tb]
 	\center{\includegraphics[width=\textwidth]{figures/exp1_2_data}}
 	\caption{\label{fig:exp1_2_data} Proportion of repeated referents selected by participants at each combination of number of Referents and Interval on Same and Switch trials in Experiment 1, and Same and New Label trials in Experiment 2. Each datapoint represents $\sim$75 participants in Experiment 1 and  $\sim$50 participants in Experiment 2. Error bars indicate 95\% confidence intervals computed by non-parametric bootstrap. Learning in all conditions of Experiment 1 differed from chance and declined mostly due to Interval for Same trials but mostly due to Referents for Switch trials. Experiment 2 Same trials replicated performance in Experiment 1 Same trials, but New Label trials were different from Switch trials in all Referent and Interval conditions.} 
 \end{figure}
 
-Next, to quantify the effect of each factor on word learning, we fit a mixed-effects logistic regression model to the data from the full dataset \cite{Baayen2008}. All mixed-effects models presented in the paper were implemented in R 3.02 using version 1.1-6 of the \texttt{lme4} package. Because of the complexity of the dataset, we constructed models iteratively, with first main effects and then interaction terms added as long as they significantly improved the fit of the model to the data (measured by likelihood comparison tests using $\chi^2$).
+To test whether participants' choices were different from those predicted by this null model, we fit we fit logistic regressions for each Referent, Interval, and Trial Type combination. These modes were specified as \small{\tt{Correct $\sim$ 1 + offset(logit($^1/_{Referents}$))}}, where the offset encodes the chance probability of success given the number of referents. The intercept term in each of these models captures on a logit scale how much more likely participants are to select the correct referent than would be expected by chance. At all Referent and Interval levels, both for Same and for Switch trials, participants chose the correct referent more often than would be expected by chance (smallest $\beta =  .393$, $z=2.55$, all $p$s $\leq .01$). Thus, learners encoded more than a single hypothesis in ambiguous word learning situations, even under high levels of memory and attentional load. 
 
-This analysis showed significant main effects of Number of Referents, Interval, and Trial Type. In addition, the model showed a significant two-way interaction between Referents and Trial Type and a significant three-way interaction between all three factors (Table~\ref{tab:exp1_reg}). Thus, while word learning was best at low levels of referential ambiguity and at low memory demands, the decreases in word learning observed on Same and Switch trials were due to different factors. For Same trials, the number of Referents played a relatively small role in the difficulty of learning, while the Interval between learning and test played a large role. However, for Switch trials, there was relatively little decline in word mapping as Interval increased but a large decline due to number of Referents. 
+Next, to quantify the effect of each factor on word learning, we fit a mixed-effects logistic regression model to the data from the full dataset \cite{Baayen2008}. All mixed-effects models presented in the paper were implemented in R 3.13 using version 1.1-7 of the \texttt{lme4} package. Because of the complexity of the dataset, we constructed models iteratively, with first main effects and then interaction terms added as long as they significantly improved the fit of the model to the data (measured by likelihood comparison tests using $\chi^2$). In addition, as in the comparison to chance above, we used an offset of $logit$($^1/_{Referents}$) so that each Referents condition was corrected for its different chance performance probability. 
 
-\begin{table}[t]
+This analysis showed a significant Intercept term---indicating globally above-chance performance---as well as main effects of Interval and Trial Type. In addition, the model showed significant two-way interaction between Referents and Trial Type and Interval and Trial Type (Table~\ref{tab:exp1_reg}). Thus, while word learning was best at low levels of referential ambiguity and at low memory demands, the decreases in word learning observed on Same and Switch trials were due to different factors. For Same trials, the number of Referents played a relatively small role in the difficulty of learning, while the Interval between learning and test played a large role. However, for Switch trials, because performance was comparatively less good at low Intervals, there was relatively little decline in word mapping as Interval increased but a large decline due to number of Referents. 
+
+\begin{table}[tb]
 \begin{center}
 \begin{tabular}{lrrrrl}
  Predictor & Estimate & Std. Error & $z$ value & $p$ value &  \\ 
   \hline
-Intercept & 4.68 & 0.41 & 11.45 & <.001 & *** \\ 
-  Log(Referents) & -0.55 & 0.18 & -3.00 & <.001 & ** \\ 
-  Log(Interval) & -0.41 & 0.19 & -2.19 & .03 & * \\ 
-  Switch Trial & -1.44 & 0.43 & -3.34 & <.001 & *** \\ 
-  Log(Referents)*Log(Interval) & -0.13 & 0.09 & -1.45 & .15 &  \\ 
-  Log(Referents)*Switch Trial & -1.04 & 0.20 & -5.32 & <.001 & *** \\ 
-  Log(Interval)*Switch Trial & 0.13 & 0.20 & 0.65 & .51 &  \\ 
-  Log(Referents)*Log(Interval)*Switch Trial & 0.20 & 0.10 & 2.13 & .03 & * \\ 
+  Intercept & 4.31 & 0.28 & 15.18 & <.001 & *** \\ 
+  Log(Referents) & 0.17 & 0.10 & 1.66 & 0.10 & . \\ 
+  Log(Interval) & -0.68 & 0.07 & -9.72 & <.001 & *** \\ 
+  Switch Trial & -2.16 & 0.30 & -7.22 & <.001 & *** \\ 
+  Log(Referents)*Switch Trial & -0.68 & 0.11 & -6.20 & <.001 & *** \\ 
+  Log(Interval)*Switch Trial & 0.54 & 0.07 & 7.34 & <.001 & *** \\ 
    \hline
-\end{tabular}
-\end{center}
+\end{tabular}\end{center}
 \vspace{6pt}
-\caption{\label{tab:exp1_reg}Predictor estimates with standard errors and significance information for a logistic mixed-effects model predicting word learning in Experiment 1. The model was specified as \small{\tt{Correct $\sim$ Log(Referents) * Log(Interval) * TrialType + (TrialType | subject)}}.}
+\caption{\label{tab:exp1_reg}Predictor estimates with standard errors and significance information for a logistic mixed-effects model predicting word learning in Experiment 1. The model was specified as \small{\tt{Correct $\sim$ Log(Referents) * TrialType + Log(Interval) * TrialType + offset(logit($^1/_{Referents}$)) + (TrialType | subject)}}.}
 \end{table}
 
 These data suggest that neither the single-referent tracking nor the statistical accumulation account of cross-situational word learning is correct. Although learners did encode multiple referents, they did not encode them all with equal strength. Memory for the hypothesized referent was stronger than for non-hypothesized referents at all referent-set sizes and at all intervals. Further, the difference between them grew with number of referents. Thus, it appears that a new account is necessary that integrates elements of both single-referent tracking and accumulative statistical tracking.
@@ -138,28 +130,29 @@ All aspects of the Stimuli, Design, and Procedure of Experiment 2 were identical
 
 \subsection{Results}
 
-Participants showed robust evidence of learning mappings (rather than simply tracking familiar objects). Whereas participants on Same trials were more likely than predicted by chance to select a referent they had previously seen but not guessed, participants in New Label trials were, in many cases, \emph{less} likely than predicted by chance to select these same referents. Further, in all Referent and Interval conditions, performance on New Label trials differed significantly from performance on comparable Switch trials. That is, these participants recognized these referents from their first exposure, and further recognized that they did not co-occur on their previous exposure with the label they heard at test (bottom row of Fig.~\ref{fig:exp1_2_data}).
+Participants showed robust evidence of learning mappings (rather than simply tracking familiar objects). As in Experiment 1, we used logistic regression to determine whether participants chose the previously-seen referent on test trials at above-chance levels. As before, participants selected their perviously guessed referent on Same trials at levels far exceeding chance (smallest $\beta =  1.39$, $z=8.17$, all $p$s $< .001$). In contrast, on New Label trials---in which a novel label was paired with a previously seen but not guessed referent---articipants \emph{never} selected the previous referent at above-chance levels. Further, in the 2 and 3 Referents conditions, they reliably selected the previously seen but not guessed referent at \emph{below} chance levels (largest $\beta =  -.32$, $z=1.95$, all $p$s $\leq .05$). In the 4 and 8 Referents conditions, participants also less frequently than predicted by chance, but this difference was not statistically reliable.
 
-In addition, a mixed-effects logistic regression largely reproduced the patterns observed in Experiment 1---word learning accuracies on Same trials declined predominantly due to Interval between learning and test, and very little due to the number of Referents. New Label trials were driven almost entirely by the number of Referents---as was the case with Switch trials in Experiment 1 (Table~\ref{tab:exp2_reg}).
+To determine whether performance on these harder New Label trials was nonetheless different from comparable Switch trials in Experiment 1, we again fit an intercept-adjusted a logistic regression for each Referent x Interval condition, but included a Condition (Switch vs. New Label) term: \small{\tt{Correct $\sim$ 1 + Condition + offset(logit($^1/_{Referents}$))}}. The Condition term was reliably different from 0 in all conditions, indicating that participants treated Switch and New Label trials differently (smallest $\beta =  .74$, $z=2.87$, all $p$s $\leq .001$). That is, participants recognized the previous referents on New Label trials from these referents from their first exposure, and further recognized that they did not co-occur on their previous exposure with the label they heard at test (bottom row of Fig.~\ref{fig:exp1_2_data}). This is strong evidence that participants did indeed encode word-object mappings for non-guessed referents even at the highest number of Referents and at the longest Interval.
 
-\begin{table}[ht]
+In addition, a mixed-effects logistic regression largely reproduced the patterns observed in Experiment 1 (Table~\ref{tab:exp2_reg}). Performance on Same trials declined predominantly due to interval, but not due to number of Referents. In contrast, interval had very little effect New Label trials---as was the case for Switch trials in Experiment 1.
+
+\begin{table}[tb]
 \begin{center}
 \begin{tabular}{lrrrrl}
  Predictor & Estimate & Std. Error & $z$ value & $p$ value &  \\ 
   \hline
-Intercept & 3.97 & 0.27 & 14.88 & <.001 & *** \\ 
-  Log(Referents) & -0.47 & 0.10 & -4.76 & <.001 & *** \\ 
-  Log(Interval) & -0.60 & 0.07 & -8.39 & <.001 & *** \\ 
-  New Label Trial & -4.02 & 0.30 & -13.31 & <.001 & *** \\ 
-  Log(Referents)*New Label Trial & -0.24 & 0.12 & -2.00 & .04 & * \\ 
-  Log(Interval)*New Label Trial & 0.58 & 0.08 & 6.99 & <.001 & *** \\ 
+  Intercept & 3.42 & 0.21 & 16.10 & <.001 & *** \\ 
+  Log(Referents) & 0.32 & 0.06 & 5.52 & <.001 & *** \\ 
+  Log(Interval) & -0.60 & 0.07 & -8.22 & <.001 & *** \\ 
+  New Label Trial & -4.49 & 0.19 & -23.52 & <.001 & *** \\ 
+  Log(Interval)*New Label Trial & 0.58 & 0.08 & 6.89 & <.001 & *** \\ 
    \hline
 \end{tabular}
 \end{center}
-\caption{\label{tab:exp2_reg}Predictor estimates with standard errors and significance information for a logistic mixed-effects model predicting word learning in Experiment 2. The model was specified as \small{\tt{Correct $\sim$ Log(Referents) * TrialType + Log(Interval) * TrialType + (TrialType | subject)}}}
+\caption{\label{tab:exp2_reg}Predictor estimates with standard errors and significance information for a logistic mixed-effects model predicting word learning in Experiment 2. The model was specified as \small{\tt{Correct $\sim$ Log(Referents) + Log(Interval) * TrialType + offset(logit($^1/_{Referents}$)) + (TrialType | subject)}}}
 \end{table}
 
-Taken together, these data are strong evidence that neither the single-referent tracking nor the statistical accumulation account of cross-situational word learning is correct. Instead, cross-situational word learning is best characterized by a combination of both of these mechanisms. In the next section, we formalize this idea.
+Taken together, these data are strong evidence that neither the single-referent tracking nor the statistical accumulation account of cross-situational word learning is correct. Instead, cross-situational word learning is best characterized by a combination of both of these mechanisms. In the next section, we formalize this idea.\footnote{For an additional control experiment, see the Appendix}
 
 \section{Model}
 
@@ -185,28 +178,32 @@ To make predictions from this model, we need to define the probabilities in Eq.~
 
 We can then take this computational-level description of the problem and add cognitive constraints to understand how the patterns observed in our data arise from the interaction of learning mechanisms, attention, and memory \cite<see e.g.,>{Frank2010a, Shi2010}. We start by describing how participants allocate their attention on each learning trial, a critical point of difference between the two different accounts of cross-situational learning. 
 
-In this framework, the most convenient place to integrate attention is in defining the learner's beliefs about $P(I|O)$, the probability of the speaker choosing to refer to each object in the set. One possibility is to let each object be equally likely to be the intended referent, implementing parallel Statistical Accumulation as in \citeA{Frank2009a}. Alternatively, the learner could place all of the probability mass on one hypothesized referent -- implementing a Single Referent tracking strategy. A more flexible alternative is to assign some probability mass $\sigma$ to the hypothesized referent, and divide the remainder evenly among the remaining objects: $\frac{1-\sigma}{|O|-1}$. This Integrated model subsumes the other two as special cases: At $\sigma=1$, it is a Single Referent tracker, and at $\sigma=\frac{1}{|O|}$, it is a parallel Statistical Accumulator (Fig.~\ref{fig:models}). 
+ \begin{figure}[tb]
+	\center{\includegraphics[width=.8\textwidth]{figures/model_fig}}
+	\caption{\label{fig:models} A representation of the continuum between the Statistical Accumulation and Single Referent Tracking models as learners' attention is varied from evenly distributed ($\sigma=\frac{1}{|O|}$) to focused on a single referent ($\sigma=1$), as well as the best-fitting integrated model's position along this continuum.}
+\end{figure}
+
+In this framework, the most convenient place to integrate attention is in defining the learner's beliefs about $P(I|O)$, the probability of the speaker choosing to refer to each object in the set\footnote{While a full process model could in-principle include two distinct components: a learner's inferred beliefs about a speaker's referential intention and the subsequent decision to allocate attention on the basis of these beliefs, these processes are indistinguishable in our data. Consequently, they collapse down to a single parameter that controls allocation of attention}. One possibility is to let each object be equally likely to be the intended referent, implementing parallel Statistical Accumulation as in \citeA{Frank2009a}. Alternatively, the learner could place all of the probability mass on one hypothesized referent -- implementing a Single Referent tracking strategy. A more flexible alternative is to assign some probability mass $\sigma$ to the hypothesized referent, and divide the remainder evenly among the remaining objects: $\frac{1-\sigma}{|O|-1}$. This Integrated model subsumes the other two as special cases: At $\sigma=1$, it is a Single Referent tracker, and at $\sigma=\frac{1}{|O|}$, it is a parallel Statistical Accumulator (Fig.~\ref{fig:models}).
 
 There is some debate about the mechanisms that give rise to attentional limitations \cite<e.g.>{Wei2012}. In our formulation, attention is treated as a continuous resource, but this choice is a matter of convenience rather than a theoretical commitment. For our purposes, the important question is to what extent attention is focused on the single target referent, and a continuous implementation allows parameter-estimation to answer this question.
 
 Next, we model how learners' memories for observed situations decay over time. We follow previous memory researchers by formalizing memory for a lexical entry as a \emph{power function} of the interval between successive exposures \cite{Anderson1991a}. As with attention-allocation, there a number of successful models of the underlying mechanisms that give rise to phenomena like the power-law observed in human memory \cite<e.g.,>{Murdock1982, Shiffrin1997}. Again, the critical aspect for modeling this data is to be consistent with the broader dynamics of human memory, rather than with determining which model can best account for these dynamics. Accordingly, memory for lexical entry $L_{o}$ decays according to a power function of time $t$ in which $\gamma$ scales the strength of initial encoding and $\lambda$ defines the rate of decay.
 
 \begin{align}
-M(L_{o}) = \gamma \, L_{o} \, t^{-\lambda}
+M(L_{o}) = \gamma \, L_{o} \, t^{-\lambda} \label{eq:wurwur4}
 \end{align}
 
-Finally, we provide a choice rule describing how learners select among the objects on each test trial. We propose that learners choose the correct referent with probability proportional to their memory for its lexical entry, and otherwise choose randomly among the set of referents.\footnote{This formulation is equivalent to using Luce's Choice Axiom \cite{Luce1959} in which the target has strength  $M(L_{o}) + \frac{1-M(L_{o})}{|O|}$ and each foil has strength $\frac{1-M(L_{o})}{|O|}$.} We use this rule because all of the foils on both Same and Switch trials were novel, and thus should have no trace in memory.
+Finally, we provide a choice rule describing how learners select among the objects on each test trial. We propose that learners choose the correct referent with probability proportional to their memory for its lexical entry, and otherwise choose randomly among the set of referents (Eq.~\ref{eq:wurwur5})\footnote{This formulation is equivalent to using Luce's Choice Axiom \cite{Luce1959} in which the target has strength  $M(L_{o}) + \frac{1-M(L_{o})}{|O|}$ and each foil has strength $\frac{1-M(L_{o})}{|O|}$.} We use this rule because all of the foils on both Same and Switch trials were novel, and thus should have no trace in memory.
 
 \begin{align}
-P(Correct) = M(L_{o}) + \frac{1-M(L_{o})}{|O|}
+P(Correct) = M(L_{o}) + \frac{1-M(L_{o})}{|O|} \label{eq:wurwur5}
 \end{align}
 
-We implemented our models in R 3.02 using version 2.20 of the \texttt{rstan} package. Raw data for all participants presented in the paper and R code for running the models are available in a github repository at \url{http://github.com/dyurovsky/XSIT-MIN}. All three models---Statistical Accumulation, Single Referent, and Integrated---were fit to the data from Experiment 1 at the individual-participant level. Best-fitting parameters for Experiment 1 for each model were estimated by computing the mean value returned across 1000 samples.
+We implemented our models in R 3.13 using version 2.60 of the \texttt{rstan} package. Raw data for all participants presented in the paper and R code for running the models are available in a github repository at \url{http://github.com/dyurovsky/XSIT-MIN}. All three models---Statistical Accumulation, Single Referent, and Integrated---were fit to the data from Experiment 1 at the individual-participant level. Best-fitting parameters for Experiment 1 for each model were estimated by computing the mean value returned across 1000 samples.
 
 While the Single Referent and Statistical Accumulation models capture some of the structure in the data in Experiment 1, each leaves significant variance unexplained. The Single Referent Model cannot predict above-chance performance on Switch trials, and the Statistical Accumulation model cannot predict a difference between the Same and Switch trials. The Integrated model, however, predicts 95\% of the variance in the data, and significantly outperforms the other models in BIC comparisons as well---a metric that trades off its superior performance against its one additional parameter (Table~\ref{tab:model}).
 
-
-\begin{table}
+\begin{table}[tb]
 \begin{center}
 \begin{tabular}{lrrrr}
   Model & Log Likelihood & BIC & E1 $r^{2}$ & E1+2 $r^{2}$ \\ 
@@ -220,7 +217,7 @@ While the Single Referent and Statistical Accumulation models capture some of th
 \caption{\label{tab:model}Likelihood and Correlation measures for models on Experiments 1 and 2. The Integrated model outperformed both of the individual accounts on all measures.}
 \end{table}
 
- \begin{figure}[t]
+ \begin{figure}[tb]
 	\center{\includegraphics[width=\textwidth]{figures/exp1and2fit}}
 	\caption{\label{fig:model_fit} Predictions of the Integrated model for all conditions in Experiment 1 and 2. This model was able to account for 97\% of the variance in the data, significantly outperforming both Single Hypothesis and Parallel Accumulation models.}
 \end{figure}
@@ -233,24 +230,91 @@ For an ideal learner, word-object co-occurrence statistics contain a wealth of i
 
 Our results here suggest a synthetic explanation: The degree to which learners represent statistical information depends on the complexity of the learning situation. When there are many possibilities, learners represent little about any other than the one that is currently favored; when there are few, learners represent more. This account does not depend on positing multiple, discrete learning systems. Instead, the tradeoff between the most likely hypothesis and the alternatives emerges from graded constraints on memory and attention. Consistent with this account, when we manipulated the cognitive demands of a cross-situational word learning paradigm, we found a gradual shift in the fidelity with which alternatives were represented.
 
-This graded shift in representation was well-described by an ideal learning model, but only when this model was modified to take into account psychological constraints on attention and memory \cite{Kachergis2012,Vlach2013,Yurovsky2014}. This framework allowed us to estimate the effects of these constraints on learning to find the model that best fit the data---one intermediate between the two extreme poles of parallel statistical accumulation and single-referent tracking. This unifying account provides a route by which both hypotheses and sensitivity to statistics can make complementary contributions to word learning \cite{Waxman2009,Kachergis2013}. 
+This graded shift in representation was well-described by an ideal learning model, but only when this model was modified to take into account psychological constraints on attention and memory \cite{Kachergis2012,Vlach2013,Yurovsky2014}. This framework allowed us to estimate the effects of these constraints on learning to find the model that best fit the data---one intermediate between the two extreme poles of parallel statistical accumulation and single-referent tracking. This unifying account provides a route by which both hypotheses and sensitivity to statistics can make complementary contributions to word learning \cite{Waxman2009,Kachergis2013}. It also provides some insight into the conflicting results of previous experiments (Figure~\ref{fig:mrefs}). Because the amount of information participants encode about each non-hypothesized referent falls of proportionally to the number of referents presented, and because the amount of information participants remember falls of proportionally to the interval between successive exposures, statistical power to detect significant information falls of rapidly as the task grows in complexity. This is further complicated by the interactions in the way that participants encode and retrieve information as referents co-occurr with multiple different words \cite{Yurovsky2013, Yurovsky2014}. Consequently, we believe that much of the previous confusion has arisen from issues of measurement and statistical inference.
 
-The shift from a computational to an algorithmic (or, psychological) description was critical in capturing the pattern of human performance in our task \cite{Marr1982,Frank2010a,Yurovsky2012c}. For the current model, we chose one principled instantiation of cognitive limitations based on previous work, but there may be other consistent proposals. Indeed, recent work from \citeA{Yu2012b} suggests that human performance observed in cross-situational learnings task can be consistent with a number of seemingly quite different models that can mimic each other \cite<see also,>{Townsend1990}. These authors note that modeling choices peripheral to the central learning mechanism---e.g., attentional allocation, memory, choice rule---can be varied to produce many different patterns of learning. In order to address this issue, we fit a large set of parametrically-varying data that imposes strong constraints on model parameters and modeling choices. In addition, we prevented overfitting by fixing model parameters using Experiment 1 and making parameter-independent predictions about learning that were supported in Experiment 2. This approach allowed us to gain insight about both the central learning mechanism and the constraining processes that together determine human performance.
-
-% FROM PREVIOUS DRAFT
-% Where do children sit along this continuum from statistical learner to discrete hypothesis tester? In our paradigm---which presents learners with only a single piece of evidence---the youngest children we tested showed no sign of tracking multiple referents. In contrast, older preschoolers showed increasingly more success. While this developmental shift could signal a genuine discontinuity, our modeling work suggests that it also might emerge gradually via developmental changes in attention and memory \cite{Yu2011a,Vlach2013}.
+The shift from a computational to an algorithmic (or, psychological) description was critical in capturing the pattern of human performance in our task \cite{Marr1982,Frank2010a,Yurovsky2012c}. For the current model, we chose one principled instantiation of cognitive limitations based on previous work, but there may be other consistent proposals. Indeed, the literature contains a number of previous models of cross-situational learning aimed at fitting human-level performance in varying learning conditions with a number of different instantiations of cognitive limitations \cite<e.g.,>{fazly2010,Smith2011a,tilles2013,Kachergis2012,Yurovsky2014}. Problematically, as demonstrated in a recent paper by \citeA{Yu2012b}, these seemingly distinct models can perfectly mimic each other at different parameter settings \cite<see also,>{Townsend1990}. These authors note that modeling choices peripheral to the central learning mechanism---e.g., attentional allocation, memory, choice rule---can be varied to produce many different patterns of learning. Thus, our goal in this paper is not to distinguish among these models, or to ultimately rule them out. Instead, our goal was to be agnostic as possible about the mechanisms underlying these cognitive constraints and to ask instead how these limitations producing variation in the fidelity of mapping representations. To facilitate this, we fit a large set of parametrically-varying data that imposes strong constraints on model parameters and modeling choices. In addition, we prevented overfitting by fixing model parameters using Experiment 1 and making parameter-independent predictions about learning that were supported in Experiment 2. This approach allowed us to gain insight about both the central learning mechanism and the constraining processes that together determine human performance.
 
 Although cross-situational learning has been proposed as a potential acquisition mechanism for children \cite<e.g.>{Pinker1989}, the majority of experimental work has focused on adults. While children can learn from cross-situational evidence \cite{Smith2008,Vlach2013,Suanda2014}, the mechanisms underlying these inferences could well be different from those operating in adults. Indeed, some recent findings suggest qualitative differences between children and adults, specifically in scenarios that require exclusion inferences \cite{Ramscar2013}. Any inference from adult data to children's learning mechanisms remains necessarily speculative.
 
 Nonetheless, as more developmental data become available, models like ours will be important tools in interpreting these data. Adults and children differ substantially in general cognitive abilities such as memory and attention \cite<e.g.>{Gathercole2004,Lane1982}. Our model suggests that even if there were continuity in learning \emph{mechanisms} across age, the representations underlying cross-situational learning might seem to shift between childhood and adulthood. For young children, even ``simple'' two-referent situations might be sufficiently challenging to prevent strong representation of multiple alternatives. Thus, interpretation of new data should be guided by predictions for memory- and attention-constrained learners. 
 
-We further note that connecting experimental data from children to the natural context of word learning may also require substantial work. Cross-situational learning experiments may impose additional cognitive demands on children (e.g., encoding many new words and unfamiliar objects) that are not representative of the familiar circumstances in which children's word learning often takes place. In natural speech to children, referents are introduced into common ground and then discussed \cite{Clark2003}. In contrast, cross-situational tasks are intentionally stripped of the constellation of communicative, attentional, and linguistic cues that typically surround naming events \cite{Frank2013a, Gogate2010, Mintz2003}, and each naming event appears in isolation, rather than being embedded in a coherent discourse \cite{Frank2013a, Rohde2014}. Thus, a full understanding of the processes of early word learning will necessarily require further analyses of the natural ecology of word learning. Nonetheless, data and models of the kind presented here provide useful guiding principles for understanding word learning in the wild.
+We further note that connecting experimental data from children to the natural context of word learning may also require substantial work. Cross-situational learning experiments may impose additional cognitive demands on children (e.g., encoding many new words and unfamiliar objects) that are not representative of the familiar circumstances in which children's word learning often takes place. In natural speech to children, referents are introduced into common ground and then discussed \cite{Clark2003}. In contrast, cross-situational tasks are intentionally stripped of the constellation of communicative, attentional, and linguistic cues that typically surround naming events \cite{Frank2013a, Gogate2010, Mintz2003}, and each naming event appears in isolation, rather than being embedded in a coherent discourse \cite{Frank2013a, Rohde2014}. Further, while cross-situational learning tasks have typically studied the mapping process independent of the generalization process, children's representations of the meanings of even concrete nouns (e.g. \emph{cup}) appear to follow an extended developmental trajectory, changing well into young-adulthood \cite{ameel2008}. This representational change is likely related both to variability in the examplars children are exposed to, the contexts in which they are seen, and to the other words children have learned and the kinds of hypotheses they have entertained \cite{hidaka2010,Dautriche2014}. Thus, a full understanding of the processes of early word learning will necessarily require further analyses of the natural ecology of word learning and how it changes across development. Nonetheless, data and models of the kind presented here provide useful guiding principles for understanding word learning in the wild.
 
 In sum, our work stands as a case study of how ideal learning models can inform psychological accounts of statistical learning. Although we focused on noun learning, our results are relevant for many problems in language, including phonetic category learning, speech segmentation, and grammar learning. In each of these domains, researchers have debated the degree to which learners represent distributional information \cite{Endress2005, Frank2010a, McMurray2013}. We suggest a synthesis: Learning is fundamentally distributional, but the fidelity of learners' distributional estimates depends critically on their limited attention and memory.
-%
-%\section{Author Contributions}
-%
-%DY and MCF designed the research, DY performed the experiments and analyzed the data, DY and MCF wrote the paper.
+
+\section{Appendix}
+
+\renewcommand{\thetable}{A\arabic{table}}
+\setcounter{table}{0}
+\renewcommand{\thefigure}{A\arabic{figure}}
+\setcounter{figure}{0}
+
+Experiment 1 showed that encode multiple referents in ambiguous naming situations, even under high levels of cognitive load. However, Experiment 1 leaves open the possibility that while participants encoded multiple referents, they did not map them particular words. Experiment 2 was designed to rule out this unimodal familiarity account, showing that that in the presence of a novel label, participants' \emph{dispreferred} the familiar object, suggesting that they encoded both words and referents, and something about the relationship between them. However, the same results are in-principle consistent with a combination of referent familiarity, word familiarity, and a complex choice rule that selects the most familiar referent in the presence of a familiar word and the most unfamiliar referent in the presence of a novel word. Experiment 3 was designed to rule out this account.
+
+In Experiments 1 and 2, the set of candidate referents for each word participants' learned was distinct from the set of candidate referents for every other word. This prevented participants from using knowledge about one word's referent to learn the correct referent of another novel word \cite<c.f.>{Smith2011a,Yurovsky2013}. This both allowed us to produce better estimates of learning fidelity across conditions and simplified the choice rule necessary for our cognitive model. In Experiment 3, we relax this constraint to allow a more stringent test of the alternative account above.
+
+\subsection{Method}
+
+\begin{table}[tb]
+\begin{center}
+\begin{tabular}{| c | c c c | c c c | c c c |}
+\multicolumn{1}{c}{ }
+ & \multicolumn{3}{c}{Experiment 1}
+ & \multicolumn{3}{c}{Experiment 2}
+ & \multicolumn{3}{c}{Experiment 3} \\
+ \hline
+Trial & Word & Ref 1 & Ref 2 & Word & Ref 1 & Ref 2 & Word & Ref 1 & Ref 2 \\ 
+\hline
+Ex-A& A & a1 & a2 & A & a1 & a2 & A & a1 & a2 \\ 
+Ex-B & B & b1 & b2 & B & b1 & b2 & B & b1 & b2 \\ 
+T-A & A & a1 & a3 & C & a1 & a3 & A & a1 & b2 \\ 
+\hline
+\end{tabular}
+\end{center}
+\vspace{6pt}
+\caption{\label{tab:exp3_design}Schematic of the design for Experiment 3. In contrast to Experiments 1 and 2, the test trial (T-A) for each word pitted a previously co-occurring referent (a1) against a more recently exposed familiar competitor referent (b1).}
+\end{table}
+
+Table~\ref{tab:exp3_design} shows a design diagram comparing Experiment 3 to Experiments 1 and 2. In Experiment 3, participants again received two trials for each novel word. On the exposure trial (Ex-A), as before, they selected one of the candidate referents. On the test trial for each word (T-A), the set of candidate referents contained one that participants had previously seen on the Exposure trial for that word (a1), \emph{and} one of the referents from the Exposure trial for the intervening word (b2). Our mapping account of the data in Experiments 1 and 2 predicts that participants should select the referent that co-occurred previously with the tested referent (a1). In contrast, a familiarity account of the previous data predicts that participants should select the referent that occurred with the intervening word (b2).
+
+As in the other experiments, we were interested in how learning scales both with the number of referents and with participants' guesses on Exposure trials. We thus tested two referent sizes between subjects: 2 and 4. We also tested all four possible combination of guesses on Exposure trials for the two critical words within-subjects. That is, we compared the referent participants selected on Ex-A to the referent participants selected on Ex-B (Same vs. Same), the referent participants selected on Ex-A to a referent they did not select on Ex-B (Same v. Switch), etc. 
+
+\subsubsection{Participants}
+
+As in Experiments 1 and 2, participants for Experiment 3 were recruited from Amazon Mechanical Turk under the constraint that they had a US IP address. Each HIT paid 30 cents for completion. Because Experiment 3 contained fewer trials per within-subjects condition than experiments 1 and 2, we posted 250 HITs for each Referent condition for a total of 500 paid HITS. Participants were again paid for multiple HITs, but only data from their first was included in the final set (excluded 8 HITs) and additional HIT was posted. In addition, data was again excluded from the final sample if participants did not give correct answers for familiar trials (35 HITs). The final sample thus comprised 465 unique participants, 234 in the 2 Referents condition and 231 in the 4 Referents condition).
+
+\subsubsection{Stimuli, Design, and Procedure}
+
+Experiment 3 used the same Stimuli and general trial structure as Experiments 1 and 2 (Table~\ref{tab:exp3_design}. Each participant received either the 2 Referents or the 4 Referents condition. Each participant was exposed to 8 words, 4 of which were tested and 4 of which provided the Familiar competitors. One of the words was tested in each possible Target vs. Competitor condition (Same v. Same, Same v. Switch, Switch v. Same, Switch v. Switch). In all cases, one Competitor Exposure trial (Ex-B) occurred between the Exposure and Test trials for the Target word, as in the Interval 2 conditions of Experiments 1 and 2. 
+
+\subsection{Results}
+
+Do learners encode mappings for multiple candidate referents, or only do they instead encode words and referents independently? If participants encoded mappings, we would expect them to select the Correct referent more frequently than expected by chance on test trials, even when the Correct referent was one they did not previously select on an Exposure trial. To test this prediction, we again fit adjusted logistic regressions to each condition (\small{\tt{Correct $\sim$ 1 + offset(logit($^1/_{Referents}$))}}). For both 2 and 4 Referents, for all test types, participants selected the Correct referent at levels higher than predicted by chance (smallest $\beta =  .58$, $z=4.25$, all $p$s $< .001$). In the 2 Referent condition, this necessarily means that they chose the Correct referent more frequently than the Familiar referent, as these were the only two options at test. However, in the 4 Referents condition, two other novel Competitors were available. To show that participants distinguished between the Correct and Familiar referents in this condition, we need to further show that they were chosen at different levels. We thus fit an adjusted logistic regression to determine whether these referents were chosen at statistically different rates (\small{\tt{Correct $\sim$ 1 + Type + offset(logit($^1/_{Referents}$))}}). Indeed, for all test types, the Correct referent was chosen more frequently than the Familiar referent (smallest $\beta =  .61$, $z=3.09$, all $p$s $< .01$). Thus, learners encoded more multiple word-referent mappings, and not just multiple words and referents (Figure~\ref{fig:exp3_data}).
+
+ \begin{figure}[tb]
+	\center{\includegraphics[width=\textwidth]{figures/exp3_data}}
+	\caption{\label{fig:exp3_data} Proportion of participants choosing the Correct (co-occurring) and Familiar (most recently seen) referent for each of the four trial types in Experiment 3. Each datapoint represents $\sim$230 participants. Error bars indicate 95\% confidence intervals computed by non-parametric bootstrap. In all cases, participants chose the Correct referent at above chance levels, and also significantly more often than the Familiar referent, indicating that they learned a mapping between words and objects even on Switch trials. Performance decreased predictably when the number of referents increased and when the Correct referent was the one not selected by participants on Exposure trials (\emph{Switch vs. X}).}
+\end{figure}
+
+To examine differences across the conditions we tested, we fit a mixed-effects model to determine how performance varied with test type and number of Referents. This model showed a significant Intercept term, indicating globally above-chance selection of Correct referents. It further showed significant main effects Target Type, and Competitor Type, indicating that participants performed best when both the Target and Competitor were referents they had previously hypothesized on Exposure trials. Finally, the model showed significant interaction between both Target and Competitor types and number of Referents, indicating that at 4 Referents the identity of the Target referent had more effect than the identity of the Competitor referent\footnote{Although participants do not receive feedback, one might be nonetheless be concerned that because the correct referent on this task is always the referent that was seen two trials ago, participants' performance on this task might be due to learning a meta-strategy of selecting this referent. Such an account would predict increased performance over the course of the experiment as participants discover this strategy. To test this alternative, we added an additional term to the mixed-effects model: Trial number. This regression showed statistically significant decrease in performance over the course of the experiment (smallest $\beta =  -.132$, $z=-4.93$, $p< .001$, ruling out this account.)}.
+
+\begin{table}[t]
+\begin{center}
+\begin{tabular}{lrrrrl}
+ Predictor & Estimate & Std. Error & $z$ value & $p$ value &  \\ 
+  \hline
+  Intercept & 3.27 & 0.45 & 7.27 & <.001 & *** \\ 
+  Log(Referents) & -0.48 & 0.37 & -1.32 & 0.19 &  \\ 
+  Switch Target & -0.92 & 0.42 & -2.17 & 0.03 & * \\ 
+  Switch Competitor & -1.77 & 0.40 & -4.40 & <.001 & *** \\ 
+  Log(Referents)*Switch Target & -0.75 & 0.36 & -2.07 & 0.04 & * \\ 
+  Log(Referents)*Switch Competitor & 1.30 & 0.34 & 3.76 & <.001 & *** \\ 
+   \hline
+\end{tabular}
+\label{tab:exp3_reg}\end{center}
+\vspace{6pt}
+\caption{\label{tab:exp3_reg}Predictor estimates with standard errors and significance information for a logistic mixed-effects model predicting word learning in Experiment 1. The model was specified as \small{\tt{Correct $\sim$ Log(Referents) * Target + Log(Referents) * Competitor + offset(logit($^1/_{Referents}$)) + (TrialType | subject)}}.}
+\end{table}
 
 \bibliographystyle{apacite}
 \bibliography{xsit-min}
