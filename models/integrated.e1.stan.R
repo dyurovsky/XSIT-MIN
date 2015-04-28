@@ -23,19 +23,13 @@ parameters {
 
 transformed parameters {
   //Compute strength of encoding in each NumRef/Int condition 
-  real<lower=0>c_s[PicConds,IntConds];
-  real<lower=0>c_o[PicConds,IntConds];
+  real<lower=0,upper=1>c_s[PicConds,IntConds];
+  real<lower=0,upper=1>c_o[PicConds,IntConds];
   
   for (n in 1:PicConds)
     for (i in 1:IntConds) {
       c_s[n,i] <- sigma*pow(Int[i],-lambda)*gamma; //Same
       c_o[n,i] <- ((1-sigma)/(NumPic[n]-1))*pow(Int[i],-lambda)*gamma; //Switch
-      
-      //Prop. Correct must be <= 1
-      if(c_s[n,i] > 1)
-        c_s[n,i] <- 1;
-      if(c_o[n,i] > 1)
-        c_o[n,i] <- 1;
     }
 }
 
