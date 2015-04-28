@@ -56,6 +56,16 @@ integrated.pred <- function(sigma,gamma,lambda,nrefs,int) {
   return(c(sn,on,wn))
 }
 
+integrated.kyle.pred <- function(sigma_s,sigma_n,gamma_s,gamma_n,
+                                 lambda,nrefs,int) {
+  s_sn <- gamma_s*sigma_s*int^-lambda
+  s_on <- gamma_s*((1-sigma_s)/(nrefs-1))*int^-lambda
+  n_sn <- gamma_n*sigma_n*int^-lambda
+  n_on <- gamma_n*((1-sigma_n)/(nrefs-1))*int^-lambda
+
+  return(c(s_sn,s_on,n_sn,n_on))
+}
+
 # Computes Prop. Correct at Test from Memory Strength
 #
 # Input
@@ -72,4 +82,14 @@ prop.from.pred <- function(preds,nrefs) {
   wn <- mean(rbinom(100000,1,(1-preds[3])/nrefs) - preds[3])
   
   return(c(ps,po,wn))
+}
+
+prop.from.pred.kyle <- function(preds,nrefs) {
+  
+  s_ps <- mean(rbinom(100000,1,preds[1] + (1-preds[1])/nrefs))
+  s_po <- mean(rbinom(100000,1,preds[2] + (1-preds[2])/nrefs))
+  n_ps <- mean(rbinom(100000,1,preds[3] + (1-preds[3])/nrefs))
+  n_po <- mean(rbinom(100000,1,preds[4] + (1-preds[4])/nrefs))
+  
+  return(c(s_ps,s_po,n_ps,n_po))
 }

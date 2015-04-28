@@ -19,7 +19,7 @@ opts_chunk$set(message=FALSE, warning=FALSE, cache=TRUE)
 Load required libraries.
 ```{r, cache=FALSE}
 # Get Lab Version of Useful R Functions
-source('~/Projects/Other/Ranalysis/useful_dplyr.R')
+source('helpers.R')
 library(directlabels)
 library(stringr)
 library(xtable)
