@@ -184,8 +184,8 @@ Plot performance in Experiment 3
 #Figure A1
 ggplot(ms, aes(x=as.numeric(trialType), y=mean,
               label=measure, color=measure)) +
-  facet_grid(.~ numPics,
-             labeller = function(var,value){
+  facet_grid(. ~ numPics,
+             labeller = function(var, value){
                return(paste(value,"Referents",sep=" "))}) +
   geom_pointrange(aes(ymin = ci_lower,
                       ymax = ci_upper),
