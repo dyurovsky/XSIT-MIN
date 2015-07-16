@@ -17,19 +17,23 @@ opts_chunk$set(message=FALSE, warning=FALSE, cache=TRUE)
 ```
 
 Load required libraries.
-```{r, cache=FALSE}
-# Get Lab Version of Useful R Functions
-source('helpers.R')
+```{r libraries, cache=FALSE}
+library(ggplot2)
+library(lme4)
+library(stringr)
+library(lubridate)
+library(dplyr)
 library(directlabels)
 library(stringr)
 library(xtable)
 library(tidyr)
 library(readr)
 library(magrittr)
+library(langcog) # Langcog Lab useful R functions -- www.github.com/langcog/langcog
 ```
 
 Read in Experimental data from .csvs
-```{r,cache=FALSE}
+```{r data, cache=FALSE}
 e1 <- read_csv("../data/exp1_long.csv") %>%
   mutate(exp = "Experiment 1")
 e2 <- read_csv("../data/exp2_long.csv") %>%
@@ -37,38 +41,37 @@ e2 <- read_csv("../data/exp2_long.csv") %>%
 ```
 
 Data Munging
-```{r}
+```{r munge}
 # all.data: trial-level
 all.data <- bind_rows(e1,e2) %>%
   select(exp,subid,trialType,correct,numPicN,intervalN) %>%
   mutate(
     exp = factor(exp),
-    trialType = factor(trialType,levels=c("Same","Switch","New Label")),
+    trialType = factor(trialType, levels=c("Same", "Switch", "New Label")),
     intervalN = intervalN + 1,
     log.numPic = log2(numPicN),
     log.interval = log2(intervalN)) %>%
-  group_by(exp,intervalN,numPicN,trialType,subid)
+  group_by(exp, intervalN, numPicN, trialType, subid)
 
 ##### DESCRIPTIVES ######
 # mss: subject-level
 mss <- all.data %>%
-  summarise(sum = sum(correct),
-            correct = mean(correct)) %>%
-  arrange(exp,trialType,intervalN,numPicN)
+  summarise_each(funs(mean,sum),correct) %>%
+  arrange(exp, trialType, intervalN, numPicN)
 
 # ms: condition-level
-ms <- mss %>% #By-condition, across subjects
-  summarise_each(funs(ci.high,ci.low,mean),correct) %>%
-  left_join(summarise(mss,n = n())) %>%
+ms <- multi_boot(mss, column="mean", 
+                 statistics_functions = c("ci_lower","ci_upper"))%>% 
+  left_join(summarise(mss,n = n(), mean = mean(mean))) %>%
   arrange(exp,trialType,intervalN,numPicN) %>%
   ungroup() %>%
   mutate(graph.trialType = factor(trialType,
-                                  labels=c("Same","Switch","New\nLabel")),
+                                  labels=c("Same", "Switch", "New\nLabel")),
          graph.numPic = paste(numPicN, " Referents", sep=""))
 ```
 
 Functions for comparisons against chance
-```{r}
+```{r chance_functions}
 # Logit function for passing chance performance offsets to glms
 logit <- function(x) {log(x/(1-x))}
 
@@ -77,24 +80,33 @@ logit <- function(x) {log(x/(1-x))}
 test.chance <- function(data,groups,formula,row=1) {
   chance.tests <- data %>%
     group_by_(.dots = groups) %>%
-    do(chance.lm = summary(glm(formula,offset=logit(1/numPicN),
+    do(chance.lm = summary(glm(formula, offset=logit(1/numPicN),
                                family="binomial", data = .)))
   
-  chance.tests$betas  <- sapply(chance.tests$chance.lm,
+  chance.tests$betas<- sapply(chance.tests$chance.lm,
                                 function(x) {x$coefficients[row,1]})
   chance.tests$zs <- sapply(chance.tests$chance.lm,
                             function(x) {x$coefficients[row,3]})
   chance.tests$ps <- sapply(chance.tests$chance.lm,
                             function(x) {x$coefficients[row,4]})
   
-  return(select(chance.tests,-chance.lm))
+  return(select(chance.tests, -chance.lm))
   }
 ```
 
-Experiment 1 
-```{r}  
-e1.data <- filter(all.data, exp=="Experiment 1")
+```{r stars}
+## get stars for significance testing
+getstars <- function(x) {
+  if (x > .1) {return("")}
+  if (x < .001) {return("***")}
+  if (x < .01) {return("**")}
+  if (x < .05) {return("*")}
+  return(".")}
+```
 
+Experiment 1 
+```{r exp1_chance}  
+e1.data <- filter(all.data, exp=="Experiment 1")
 
 # Uses a logistic regression with an chance-level offset to ask whether performance
 # in each Num Referents x Interval condition is different from chance
@@ -105,31 +117,31 @@ e1.chance.tests <- test.chance(e1.data,
 
 kable(e1.chance.tests,
       col.names = c("Trial Type", "Referents", "Interval",
-                    "$\\beta$","$z$ value","$p$ value",""))
+                    "$\\beta$", "$z$ value", "$p$ value",""))
 ```
 
 Experiment 2
-```{r}
+```{r exp2_chance}
 e2.data <- filter(all.data, exp=="Experiment 2")
 
 # Uses a logistic regression to ask whether Trial Type (Switch vs. New Label)
 # predicts difference in accuracy for each Num Referents x Interval Condition
 e2.chance.tests <- test.chance(e2.data,
-                               groups = c("trialType","numPicN","intervalN"),
+                               groups = c("trialType", "numPicN", "intervalN"),
                                formula = as.formula("correct ~ 1")) %>%
   mutate(stars = getstars(ps))
 
 kable(e2.chance.tests,
       col.names = c("Trial Type", "Referents", "Interval",
-                    "$\\beta$","$z$ value","$p$ value",""))
+                    "$\\beta$", "$z$ value", "$p$ value",""))
 ```
 
 Comparing Switch against New Label
-```{r}
+```{r switch_newlabel}
 comp.data <- filter(all.data,trialType == "Switch" | 
                       trialType == "New Label") %>%
   ungroup() %>%
-  mutate(trialType = factor(trialType,levels=c("New Label", "Switch")))
+  mutate(trialType = factor(trialType, levels=c("New Label", "Switch")))
 
 comp.tests <- test.chance(comp.data, groups = c("numPicN","intervalN"),
                           formula = as.formula("correct ~ 1 + trialType"),
@@ -143,7 +155,7 @@ kable(comp.tests,
 ```
 
 Mixed Effects Models
-```{r}
+```{r lmers}
 # Experiment 1 
 e1.lmer <- glmer(correct ~ log.numPic * trialType + trialType*log.interval + 
                    (trialType | subid), offset = logit(1/numPicN),
@@ -204,13 +216,13 @@ kable(e2.tab)
 ```
 
 Plot performance in Experiments 1 and 2
-```{rfig.width=10,figh.height=5.5}
+```{r plot, fig.width=10,figh.height=5.5}
 # Figure 3
 #quartz(width=10,height=5.5,title = "Experiment 1 and 2 Data")
 ggplot(ms, aes(x=intervalN, y=mean, colour=trialType,label=graph.trialType))+
   facet_grid(exp ~ graph.numPic) +
-  geom_pointrange(aes(ymin = mean-ci.low,
-                    ymax = mean+ci.high),
+  geom_pointrange(aes(ymin = ci_lower,
+                    ymax = ci_upper),
                 size = .8) +
   geom_hline(aes(yintercept=1/numPicN),lty=2)  +
   scale_y_continuous(limits = c(0,1),breaks=seq(0,1,.25),

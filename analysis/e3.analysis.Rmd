@@ -18,51 +18,56 @@ opts_chunk$set(message=FALSE, warning=FALSE, cache=TRUE)
 
 
 Load required libraries.
-```{r, cache=FALSE}
-source('helpers.R')
+```{r libraries, cache=FALSE}
+library(ggplot2)
+library(lme4)
+library(stringr)
+library(lubridate)
+library(dplyr)
 library(directlabels)
 library(stringr)
 library(xtable)
 library(tidyr)
 library(readr)
 library(magrittr)
+library(langcog) # Langcog Lab useful R functions -- www.github.com/langcog/langcog
 ```
 
 
 Read in Experimental data from .csv
-```{r,cache=FALSE}
+```{r data, cache=FALSE}
 e3 <- read_csv("../data/exp3_long.csv")
 ```
 
 Data Munging
-```{r}
+```{r munge}
 # test.data: trial-level
 test.data <- e3 %>%
   filter(trialType != "Practice") %>%
   mutate(trialType = factor(trialType)) %>%
-  group_by(numPics,trialType,worker)
+  group_by(numPics, trialType, worker)
 
 ##### DATA MUNGING ######
 # mss: subject-level test data
 mss <- test.data %>%
   summarise(Correct = mean(correct),
             Familiar = mean(familiar)) %>%
-  gather(measure,resp,Correct:Familiar) %>%
-  group_by(numPics,trialType,measure)
+  gather(measure, resp, Correct:Familiar) %>%
+  group_by(numPics, trialType, measure)
 
 # ms: condition-level
-ms <- mss %>%
-  summarise_each(funs(mean,ci.low,ci.high),resp) %>%
-  group_by(numPics,measure) %>%
+ms <- multi_boot(mss, column="resp", 
+                 statistics_functions = c("ci_lower","ci_upper") )%>% 
+  left_join(summarise(mss, mean = mean(resp))) %>%
+  group_by(numPics, measure) %>%
   mutate(Item = ifelse(measure == "Correct",
                        word(trialType),word(trialType,3)))
 ```
 
 Functions for comparisons against chance
-```{r}
+```{r chance_functions}
 # Logit function for passing chance performance offsets to glms
 logit <- function(x) {log(x/(1-x))}
-
 
 # Fits logistic regressions to estimate coefficients and significance values 
 # for individual factors
@@ -83,8 +88,19 @@ test.chance <- function(data,groups,formula,row=1) {
   }
 ```
 
+```{r stars}
+## get stars for significance testing
+getstars <- function(x) {
+  if (x > .1) {return("")}
+  if (x < .001) {return("***")}
+  if (x < .01) {return("**")}
+  if (x < .05) {return("*")}
+  return(".")}
+```
+
+
 Compare Correct against chance
-```{r}
+```{r e3_chance}
 e3.chance.tests <- test.chance(test.data,
                                groups = c("trialType","numPics"),
                                formula = as.formula("correct ~ 1")) %>%
@@ -92,12 +108,12 @@ e3.chance.tests <- test.chance(test.data,
 
 kable(e3.chance.tests,
       col.names = c("Trial Type", "Referents",
-                    "$\\beta$","$z$ value","$p$ value",""))
+                    "$\\beta$", "$z$ value", "$p$ value",""))
 ```
 
 Comparing Correct against Familiar
-```{r}
-comp.data <- gather(test.data,measure,resp,familiar,correct) 
+```{r Correct_Familiar}
+comp.data <- gather(test.data, measure, resp, familiar,correct) 
 
 comp.tests <- test.chance(comp.data, groups = c("trialType","numPics"),
                           formula = as.formula("resp ~ 1 + measure"),
@@ -107,11 +123,11 @@ comp.tests <- test.chance(comp.data, groups = c("trialType","numPics"),
 
 kable(comp.tests,
       col.names = c("Trial Types","Referents",
-                    "$\\beta$","$z$ value","$p$ value",""))
+                    "$\\beta$", "$z$ value", "$p$ value",""))
 ```
 
 Mixed Effects Models
-```{r}
+```{r lmers}
 # Experiment 3 
 e3.lmer <- glmer(correct ~ log(numPics) * Target + 
                    log(numPics) * Competitor +(1 |worker),
@@ -121,15 +137,15 @@ e3.lmer <- glmer(correct ~ log(numPics) * Target +
 
 #TABLE A1
 e3.tab <- as.data.frame(summary(e3.lmer)$coef)
-e3.tab$Predictor <- c("Intercept","Log(Referents)","Switch Target",
-                      "Switch Competitor","Log(Referents)*Switch Target",
+e3.tab$Predictor <- c("Intercept", "Log(Referents)", "Switch Target",
+                      "Switch Competitor", "Log(Referents)*Switch Target",
                       "Log(Interval)*Switch Competitor")
 rownames(e3.tab) <- NULL
 e3.tab <- e3.tab[,c(5,1:4)]
-e3.tab$stars <- sapply(e3.tab[,5],getstars)
+e3.tab$stars <- sapply(e3.tab[,5], getstars)
 names(e3.tab)[6] <- ""
 
-names(e3.tab)[4:5] <- c("$z$ value","$p$ value")
+names(e3.tab)[4:5] <- c("$z$ value", "$p$ value")
 
 kable(e3.tab)
 
@@ -149,13 +165,13 @@ e3.trial.lmer <- glmer(correct ~ log(numPics) * Target +log(numPics) * Competito
 
 
 e3.trial.tab <- as.data.frame(summary(e3.trial.lmer)$coef)
-e3.trial.tab$Predictor <- c("Intercept","Log(Referents)","Switch Target",
-                            "Switch Competitor","Trial Number", 
+e3.trial.tab$Predictor <- c("Intercept","Log(Referents)", "Switch Target",
+                            "Switch Competitor", "Trial Number", 
                             "Log(Referents)*Switch Target", 
                             "Log(Interval)*Switch Competitor")
 rownames(e3.trial.tab) <- NULL
 e3.trial.tab <- e3.trial.tab[,c(5,1:4)]
-e3.trial.tab$stars <- sapply(e3.trial.tab[,5],getstars)
+e3.trial.tab$stars <- sapply(e3.trial.tab[,5], getstars)
 names(e3.trial.tab)[6] <- ""
 
 names(e3.trial.tab)[4:5] <- c("$z$ value","$p$ value")
@@ -164,15 +180,15 @@ kable(e3.trial.tab)
 ```
 
 Plot performance in Experiment 3
-```{r,width=7,height=5}
+```{r plot, fig.width=7, fig.height=5}
 #Figure A1
-ggplot(ms,aes(x=as.numeric(trialType), y=mean,
-              label=measure,color=measure)) +
+ggplot(ms, aes(x=as.numeric(trialType), y=mean,
+              label=measure, color=measure)) +
   facet_grid(.~ numPics,
              labeller = function(var,value){
                return(paste(value,"Referents",sep=" "))}) +
-  geom_pointrange(aes(ymin = mean - ci.low,
-                      ymax = mean + ci.high),
+  geom_pointrange(aes(ymin = ci_lower,
+                      ymax = ci_upper),
                   size = .8) +
   scale_x_continuous(name = "Trial Type",
                      labels = levels(ms$trialType),
